@@ -1,0 +1,130 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 85vh;
+  overflow: hidden;
+  box-shadow: 0 0.2rem 0.8rem rgb(0 0 0 / 25%);
+  color: white;
+  font-size: 3rem;
+  display: flex;
+  
+  // box-shadow: ;
+}
+
+#intro {
+  position: absolute;
+  top: 15%;
+  left: 7%;
+  height: max-content;
+  pointer-events: none;
+  // &::after {
+  //   content: '|';
+  // }
+}
+
+#intro2 {
+  position: absolute;
+  top: 80%;
+  left: 20%;
+  height: max-content;
+  pointer-events: none;
+  width: 24rem;
+  // overflow-y: hidden;
+}
+
+#intro3 {
+  position: absolute;
+  top: 80%;
+  right: 20%;
+  height: max-content;
+  pointer-events: none;
+  // width: 24rem;
+}
+
+.wrap {
+  border-right: 0.08em solid #fff;
+  animation: caret 1s steps(1) infinite;
+
+  &1 {
+    margin: 0;
+    font-size: 5rem;
+    color: #fff;
+    display: inline;
+
+    &::before {
+      content: '<h1>';
+      position: absolute;
+      top: -.5rem;
+      left: -2rem;
+    }
+
+    &::after {
+      content: '</h1>';
+      position: absolute;
+      top: 20rem;
+      left: -2rem;
+    }
+  }
+
+  &2 {
+    margin: 0;
+    font-size: 5rem;
+    display: inline;
+
+    &::before {
+      content: '<p>';
+      position: absolute;
+      top: 5rem;
+      left: -3rem;
+    }
+
+    &::after {
+      content: '</p>';
+      position: absolute;
+      top: 5rem;
+      right: -2.5rem;
+    }
+  }
+
+  &3 {
+    margin: 0;
+    font-size: 5rem;
+    display: inline;
+
+    &::before {
+      content: '<p>';
+      font-size: 1rem;
+      position: absolute;
+      top: 5rem;
+      left: -3rem;
+    }
+
+    &::after {
+      content: '</p>';
+      font-size: 1rem;
+      position: absolute;
+      top: 5rem;
+      right: -2.8rem;
+    }
+  }
+}
+
+@keyframes caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+#right {
+  background-color: aqua;
+  transition: 1.5s ease-out;
+  flex-basis: 50%;
+  height: 100%
+}
+
+#left {
+  background-color: coral;
+  transition: 1.5s ease-out;
+  flex-basis: 50%;
+  height: 100%;
+}

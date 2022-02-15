@@ -1,0 +1,85 @@
+.about {
+  padding: 6rem 0 0;
+  width: 100%;
+  height: 100vh;
+  font-size: 2rem;
+  position: relative;
+
+  & .header {
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    gap: 6rem;
+
+    & h2 {
+      position: relative;
+
+      &::before {
+        content: '<h2>';
+        position: absolute;
+        top: 50%;
+        left: -4rem;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        content: '</h2>';
+        position: absolute;
+        top: 50%;
+        right: -4.5rem;
+        transform: translateY(-50%);
+      }
+    }
+  
+    & div {
+      border-bottom: .5px solid red;
+      height: 0;
+      width: 40rem;
+      align-self: center;
+    }
+  
+    & div:first-of-type {
+      justify-self: end;
+    }
+  
+    & div:last-of-type {
+      justify-self: start;
+    }
+  }
+
+  & .body {
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    
+    
+    & .para {
+      margin-top: 8rem;
+      width: 80%;
+      height: max-content;
+      justify-self: center;
+      position: relative;
+
+      &::before {
+          content: '<p>';
+          position: absolute;
+          top: 0rem;
+          left: -1.5rem;
+        }
+
+        &::after {
+          content: '</p>';
+          position: absolute;
+          bottom: -3rem;
+          left: -1.5rem;
+        }
+    }
+
+    
+    & a {
+      border-bottom: 2px solid red;
+    }
+  }
+}
+
