@@ -1,0 +1,29 @@
+.footer {
+  height: 6rem;
+  width: 100%;
+  background-color: burlywood;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  gap: 2rem;
+
+  & span {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    gap: 1rem;
+
+    & svg {
+      font-size: 1.3rem;
+      color: white;
+      justify-self: center;
+      align-self: center;
+    }
+
+    & p {
+      font-size: 1.3rem;
+      color: white;
+      justify-self: center;
+      align-self: center;
+    }
+  }
+}

@@ -1,0 +1,173 @@
+.contact {
+  display: grid;
+  grid-template-rows: max-content max-content;
+  gap: 4rem;
+  overflow: hidden;
+
+  & .header {
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    gap: 6rem;
+
+    & h2 {
+      position: relative;
+
+      &::before {
+        content: "<h2>";
+        position: absolute;
+        top: 50%;
+        left: -4rem;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        content: "</h2>";
+        position: absolute;
+        top: 50%;
+        right: -4.5rem;
+        transform: translateY(-50%);
+      }
+    }
+
+    & div {
+      border-bottom: 0.5px solid red;
+      height: 0;
+      width: 40rem;
+      align-self: center;
+    }
+
+    & div:first-of-type {
+      justify-self: end;
+    }
+
+    & div:last-of-type {
+      justify-self: start;
+    }
+  }
+
+  & .body {
+    // display: grid;
+    // // grid-template-columns: 1fr 1fr;
+    // justify-items: center;
+    width: 50%;
+    margin-left: 25rem;
+
+    & p {
+      line-height: 1.5;
+      position: relative;
+
+      &::before {
+        content: "<p>";
+        position: absolute;
+        top: -1rem;
+        left: -2rem;
+      }
+
+      &::after {
+        content: "</p>";
+        position: absolute;
+        bottom: -1rem;
+        left: -2rem;
+      }
+    }
+  }
+
+  .form {
+    height: max-content;
+    width: 80%;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+    position: relative;
+
+    &::before {
+      content: "<Form>";
+      position: absolute;
+      top: .5rem;
+      left: -2rem;
+    }
+
+    &::after {
+      content: "</Form>";
+      position: absolute;
+      bottom: -1rem;
+      left: -2rem;
+    }
+
+    .control {
+      // display: grid;
+      // grid-template-rows: 5rem;
+      // grid-template-columns: 1fr 1fr 1fr;
+      margin: 1.5rem 0 2rem;
+      position: relative;
+
+      & label {
+        color: grey;
+        font-size: 1.35rem;
+        font-weight: 600;
+        margin-left: 2rem;
+        margin-top: 0.7rem;
+        display: block;
+        transition: all 0.3s;
+        position: absolute;
+        top: 16%;
+        opacity: 1;
+      }
+
+      & input {
+        font-size: 1.5rem;
+        font-family: inherit;
+        color: inherit;
+        padding: 1.5rem 2rem;
+        border-radius: 2px;
+        background-color: white;
+        border: none;
+        border-bottom: 3px solid transparent;
+        width: 90%;
+        display: block;
+        transition: all 0.3s;
+
+        // @include respond(tab-port) {
+        //     width: 100%;
+        // }
+        &:focus {
+          outline: none;
+          box-shadow: 0 1rem 2rem rgba(black, 0.1);
+          border-color: 3px solid black;
+        }
+
+        &::placeholder {
+          opacity: 0;
+        }
+      }
+
+      & textarea {
+        font-size: 1.5rem;
+        font-family: inherit;
+        color: inherit;
+        padding: 1.5rem 2rem;
+        border-radius: 2px;
+        background-color: white;
+        border: none;
+        border-bottom: 3px solid transparent;
+        width: 90%;
+        display: block;
+        transition: all 0.3s;
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 1rem 2rem rgba(black, 0.1);
+          border-color: 3px solid black;
+        }
+
+        &::placeholder {
+          opacity: 0;
+        }
+      }
+    }
+
+    & button {
+      padding: 1.5rem 2.5rem;
+      background-color: bisque;
+    }
+  }
+}

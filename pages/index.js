@@ -1,8 +1,10 @@
 import Head from "next/head";
 import Image from "next/image";
 import About from "../components/About/About";
+import Contact from "../components/Conatct/Contact";
 import Header from "../components/Header/Header";
 import Works from "../components/Works/Works";
+import Footer from "../components/footer/Footer";
 
 import styles from "../styles/Home.module.scss";
 
@@ -17,6 +19,8 @@ export default function Home() {
       <Header />
       <About />
       <Works />
+      <Contact />
+      <Footer />
     </>
   );
 }

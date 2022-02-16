@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-import heroImage from "../../../public/home-explore-bg.jpg";
+import heroImage from "../../../public/home-hongkong.jpg";
 
 import styles from "./HeaderHero.module.scss";
 
-const totalText = [`Hi, I'm Kosi, Web Developer`, `Front End`, `Back End`];
+const totalText = [`Hi, I'm Kosi, Developer`, `Front End`, `Back End`];
 
 let i = 0;
 let counter = 1
@@ -72,7 +72,7 @@ const HeaderHero = () => {
     leftDivRef.current = document.getElementById(styles.left);
     rightDivRef.current = leftDivRef.current.nextElementSibling;
     
-    setTimeout(typeWriter.bind(null, header1, 0, 27), 500);
+    setTimeout(typeWriter.bind(null, header1, 0, 23), 500);
   
     // return () => {
     //   clearTimeout(typing);
@@ -80,7 +80,7 @@ const HeaderHero = () => {
   }, []);
 
   const mouseOverHandler = (event) => {
-    const eventTarget = event.target;
+    const eventTarget = event.target.closest('div');
 
     const halfScreen = docWidthRef.current / 2; 
     
@@ -106,9 +106,11 @@ const HeaderHero = () => {
 
   return (
     <div id="hero" className={styles.hero}>
-      {/* <Image src={heroImage} alt="my picture" layout="responsive" /> */}
-      <div onMouseOut={mouseOutHandler} onMouseMove={mouseOverHandler} id={styles.left}></div>
-      <div onMouseOut={mouseOutHandler} onMouseMove={mouseOverHandler} id={styles.right}></div>
+      <div onMouseOut={mouseOutHandler} onMouseMove={mouseOverHandler} id={styles.left}>
+        <Image src={heroImage} alt='my Image' height={1010} layout="fixed" />
+      </div>
+      <div onMouseOut={mouseOutHandler} onMouseMove={mouseOverHandler} id={styles.right}>
+      </div>
       <div id={styles.intro}>
         <h1 id={"header1"} className={`${styles.wrap} ${styles.wrap1}`}></h1>
       </div>

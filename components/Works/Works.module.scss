@@ -1,7 +1,7 @@
 .section {
-  padding: 6rem 0 0 0;
+  padding: 6rem 0 6rem 0;
   width: 100%;
-  height: 100vh;
+  // height: 100vh;
   font-size: 2rem;
   position: relative;
 
@@ -47,55 +47,10 @@
   }
 }
 
-.portfolio {
-  width: 75%;
-  height: 33rem;
-  margin: 0 auto;
-  margin-top: 6rem;
+.portContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  gap: 2rem;
-
-  & .control {
-    width: 80%;
-    height: 100%;
-    justify-self: center;
-    position: relative;
-    visibility: visible;
-
-    & p {
-      visibility: visible;
-      -webkit-line-clamp: 4;
-      text-overflow: ellipsis;
-      overflow: hidden;
-    }
-
-    & h3 {
-      margin: 0;
-    }
-
-    & .iconControl {
-      font-size: 2rem;
-      display: grid;
-      grid-template-columns: repeat(15, 1fr);
-      grid-auto-flow: column;
-      gap: 0rem;
-    }
-
-    & .buttonControl {
-      position: absolute;
-      width: max-content;
-      bottom: 2rem;
-
-      & a {
-        padding: 1.3rem 2rem;
-        background-color: bisque;
-      }
-
-      & a:last-of-type {
-        margin-left: 1rem;
-      }
-    }
-  }
+  grid-template-columns: 1;
+  grid-auto-rows: max-content;
+  justify-items: center;
+  gap: 5rem;
 }

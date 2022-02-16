@@ -19,24 +19,29 @@ const About = () => {
       </div>
       <div className={styles.body}>
         <div className={styles.para}>
-            <p>
-              I'm a self-taught full stack web developer with over a decade
-              worth of experience working with all types of companies and
-              individuals.
-              {/* have gained invaluable knowledge ?? */}
-            </p>
-            <p>
-              I'm passionate about creating fascinating solutions to problems
-              and bringing ideas to life writing clean, efficient and
-              maintainable code.
-            </p>
-            <p>
-              I currently work remotely with a selected freelance client base
-              being open for new opportunities.
-            </p>
-            <Link href="#">
-              <a>Get In Touch!</a>
-            </Link>
+          <span className={styles.html}>Html</span>
+          <span className={styles.React}>React</span>
+          <span className={styles.next}>next</span>
+          <span className={styles.scss}>scss</span>
+          <span className={styles.css}>css</span>
+          {/* <p>
+            I'm a self-taught full stack web developer with over a decade
+            worth of experience working with all types of companies and
+            individuals. */}
+          {/* have gained invaluable knowledge ?? */}
+          {/* </p> */}
+          {/* <p>
+            I'm passionate about creating fascinating solutions to problems
+            and bringing ideas to life writing clean, efficient and
+            maintainable code.
+          </p>
+          <p>
+            I currently work remotely with a selected freelance client base
+            being open for new opportunities.
+          </p>
+          <Link href="#">
+            <a>Get In Touch!</a>
+          </Link> */}
         </div>
         <Image src={image} alt="stack" layout="responsive" />
       </div>

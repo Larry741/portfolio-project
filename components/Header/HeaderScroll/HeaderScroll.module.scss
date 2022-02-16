@@ -1,0 +1,67 @@
+.scroll {
+  color: white;
+  writing-mode: vertical-rl;
+  position: fixed;
+  font-size: 1.3rem;
+  width: 2rem;
+  height: 9rem;
+  top: 84vh;
+  left: 3rem;
+
+  & p {
+    margin: 0;
+    position: absolute;
+    top: -1rem;
+    left: 1rem;
+    white-space: nowrap;
+    animation: bounce 2s ease infinite;
+  }
+
+  & svg {
+    position: absolute;
+    left: 1rem;
+    bottom: 0;
+    font-size: 1.6rem;
+  } 
+}
+
+.scrollRight {
+  color: white;
+  writing-mode: vertical-rl;
+  position: fixed;
+  font-size: 1.3rem;
+  width: 2rem;
+  height: 9rem;
+  top: 84vh;
+  right: 3rem;
+
+  & p {
+    margin: 0;
+    position: absolute;
+    top: -1rem;
+    left: 1rem;
+    white-space: nowrap;
+    animation: bounce 2s ease infinite;
+  }
+
+  & svg {
+    position: absolute;
+    left: 1rem;
+    bottom: 0;
+    font-size: 1.6rem;
+  } 
+}
+
+@keyframes bounce {
+  0% {
+    top: -1rem;
+  }
+
+  50% {
+    top: .2rem;
+  }
+
+  100% {
+    top: -1rem;
+  }
+}

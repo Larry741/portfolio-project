@@ -1,10 +1,30 @@
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { FaReact, FaSass, FaHtml5 } from "react-icons/fa";
 
-import image from '../../public/table.png';
+import Portfolio from './portfolio/portfolio';
 import styles from './Works.module.scss';
+
+import { FaReact, FaSass, FaHtml5, FaCss3Alt } from "react-icons/fa";
+import { SiFirebase } from "react-icons/si";
+
+
+const portfolio = [
+  {
+    name: "Adventours",
+    paragraph: `For when you need a break from your partner but already got a
+          babysitter. Now couples can go to different events in similar
+          locations and at the same time. A group programming project with Can
+          Rozanes, Irene Truong and Jamie Yeung.`,
+    icons: [FaHtml5, FaCss3Alt, FaReact, FaSass, SiFirebase],
+  },
+  {
+    name: "Adventours",
+    paragraph: `For when you need a break from your partner but already got a
+          babysitter. Now couples can go to different events in similar
+          locations and at the same time. A group programming project with Can
+          Rozanes, Irene Truong and Jamie Yeung.`,
+    icons: [FaHtml5, FaCss3Alt, FaReact, FaSass, SiFirebase],
+  },
+];
 
 const Works = () => {
   
@@ -15,32 +35,10 @@ const Works = () => {
         <h2>Portfolio</h2>
         <div></div>
       </div>
-      <div className={styles.portfolio}>
-        <div className={styles.control}>
-          <h3>Adventours</h3>
-          <p>
-            For when you need a break from your partner but already got a
-            babysitter. Now couples can go to different events in similar
-            locations and at the same time. A group programming project with Can
-            Rozanes, Irene Truong and Jamie Yeung.
-          </p>
-          <div className={styles.iconControl}>
-            <FaHtml5 />
-            <FaSass />
-            <FaReact />
-          </div>
-          <div className={styles.buttonControl}>
-            <div>
-              <Link href="#">
-                <a>View Project</a>
-              </Link>
-              <Link href="#">
-                <a>View Github</a>
-              </Link>
-            </div>
-          </div>
-        </div>
-        <Image src={image} alt="work image" width={430} height={330} />
+      <div className={styles.portContainer} >
+        {portfolio.map((item, index) => {
+          return <Portfolio key={index} data={item} index={index} />;
+        })}
       </div>
     </section>
   );
