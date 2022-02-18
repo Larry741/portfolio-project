@@ -1,4 +1,6 @@
 .contact {
+  height: 100vh;
+  padding: 4rem 0 0 0;
   display: grid;
   grid-template-rows: max-content max-content;
   gap: 4rem;
@@ -55,6 +57,7 @@
     & p {
       line-height: 1.5;
       position: relative;
+      margin-bottom: 5rem;
 
       &::before {
         content: "<p>";
@@ -97,7 +100,7 @@
       // display: grid;
       // grid-template-rows: 5rem;
       // grid-template-columns: 1fr 1fr 1fr;
-      margin: 1.5rem 0 2rem;
+      margin: 2.5rem 0 2rem;
       position: relative;
 
       & label {
@@ -152,6 +155,7 @@
         width: 90%;
         display: block;
         transition: all 0.3s;
+        margin-bottom: 4rem;
 
         &:focus {
           outline: none;

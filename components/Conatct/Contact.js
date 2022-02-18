@@ -4,7 +4,7 @@ import styles from "./Contact.module.scss";
 
 const Contact = () => {
   return (
-    <section className={styles.contact}>
+    <section id="contact" className={styles.contact}>
       <div className={styles.header}>
         <div></div>
         <h2>Contact Me</h2>
@@ -14,7 +14,7 @@ const Contact = () => {
         <p>
           I'm interested in freelance opportunities - especially ambitious or
           large projects, <br />
-          However if you have other request or questions, don't hesitate to hit
+          However if you have other request or need help, don't hesitate to hit
           me up!
         </p>
         <form className={styles.form}>

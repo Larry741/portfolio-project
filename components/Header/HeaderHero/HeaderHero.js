@@ -5,7 +5,7 @@ import heroImage from "../../../public/home-hongkong.jpg";
 
 import styles from "./HeaderHero.module.scss";
 
-const totalText = [`Hi, I'm Kosi, Developer`, `Front End`, `Back End`];
+const totalText = [`Hi, I'm Kosi, Web Developer`, `Front End`, `Back End`];
 
 let i = 0;
 let counter = 1
@@ -72,7 +72,7 @@ const HeaderHero = () => {
     leftDivRef.current = document.getElementById(styles.left);
     rightDivRef.current = leftDivRef.current.nextElementSibling;
     
-    setTimeout(typeWriter.bind(null, header1, 0, 23), 500);
+    setTimeout(typeWriter.bind(null, header1, 0, 27), 500);
   
     // return () => {
     //   clearTimeout(typing);
@@ -107,7 +107,7 @@ const HeaderHero = () => {
   return (
     <div id="hero" className={styles.hero}>
       <div onMouseOut={mouseOutHandler} onMouseMove={mouseOverHandler} id={styles.left}>
-        <Image src={heroImage} alt='my Image' height={1010} layout="fixed" />
+        <Image src={heroImage} alt='my Image'  layout='fixed' objectFit="fill" />
       </div>
       <div onMouseOut={mouseOutHandler} onMouseMove={mouseOverHandler} id={styles.right}>
       </div>

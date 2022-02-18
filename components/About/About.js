@@ -1,17 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
 
-import Image from 'next/image';
 import Link from 'next/link';
 
-
-import image from '../../public/download.png'
 import styles from './About.module.scss';
 
 const About = () => {
 
 
   return (
-    <section className={styles.about}>
+    <section id='about' className={styles.about}>
       <div className={styles.header}>
         <div></div>
         <h2>About</h2>
@@ -19,18 +16,13 @@ const About = () => {
       </div>
       <div className={styles.body}>
         <div className={styles.para}>
-          <span className={styles.html}>Html</span>
-          <span className={styles.React}>React</span>
-          <span className={styles.next}>next</span>
-          <span className={styles.scss}>scss</span>
-          <span className={styles.css}>css</span>
-          {/* <p>
+          <p>
             I'm a self-taught full stack web developer with over a decade
             worth of experience working with all types of companies and
-            individuals. */}
+            individuals.
           {/* have gained invaluable knowledge ?? */}
-          {/* </p> */}
-          {/* <p>
+          </p>
+          <p>
             I'm passionate about creating fascinating solutions to problems
             and bringing ideas to life writing clean, efficient and
             maintainable code.
@@ -41,9 +33,22 @@ const About = () => {
           </p>
           <Link href="#">
             <a>Get In Touch!</a>
-          </Link> */}
+          </Link>
         </div>
-        <Image src={image} alt="stack" layout="responsive" />
+        <div className={styles.stack}>
+          <span className={styles.html}>Html</span>
+          <span className={styles.react}>ReactJS</span>
+          <span className={styles.next}>Next</span>
+          <span className={styles.css}>Css</span>
+          <span className={styles.node}>NodeJS</span>
+          <span className={styles.express}>ExpressJS</span>
+          <span className={styles.javascript}>Javascript</span>
+          <span className={styles.mongo}>Mongodb</span>
+          <span className={styles.sass}>sass</span>
+          <span className={styles.git}>Git</span>
+          <span className={styles.Firebase}>Redux</span>
+          <span>Gulp</span>
+        </div>
       </div>
     </section>
   );

@@ -9,7 +9,7 @@ const Footer = () => {
       <div className={styles.imageBox}></div>
       <span>
         <RiCopyrightLine />
-        <p>Made with love and gatsby by Kosi</p>
+        <p>2021 Made with love by Kosi</p>
       </span>
     </div>
   );

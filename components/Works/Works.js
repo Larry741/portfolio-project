@@ -29,7 +29,7 @@ const portfolio = [
 const Works = () => {
   
   return (
-    <section className={styles.section}>
+    <section id='work' className={styles.section}>
       <div className={styles.header}>
         <div></div>
         <h2>Portfolio</h2>

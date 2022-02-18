@@ -23,8 +23,9 @@
   justify-items: center;
   align-items: center;
 
-  & a {
+  & span {
     transition: .3s;
+    cursor: pointer;
 
     &:hover { 
       color: red;
