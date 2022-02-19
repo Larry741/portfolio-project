@@ -6,12 +6,23 @@
   // gap: 3rem;
   align-items: center;
   justify-items: center;
-  background-color:  rgb(58, 56, 56);
+  background-color:  rgba(#23252F, .9);
   color: white;
+  position: fixed;
+  top: 0;
+  z-index: 20;
 }
 
 .logobox {
-
+  width: 4rem;
+  height: 4rem;
+  overflow: hidden;
+  border-radius: 50%;
+  
+  & img {
+    transform: skewX(3deg);
+    border-radius: 50%;
+  }
 }
 
 .navLinks {

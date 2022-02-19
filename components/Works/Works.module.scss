@@ -31,9 +31,9 @@
     }
   
     & div {
-      border-bottom: .5px solid red;
+      border-bottom: 0.5px solid goldenrod;
       height: 0;
-      width: 40rem;
+      width: 30rem;
       align-self: center;
     }
   
@@ -52,5 +52,5 @@
   grid-template-columns: 1;
   grid-auto-rows: max-content;
   justify-items: center;
-  gap: 5rem;
+  gap: 7rem;
 }

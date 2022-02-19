@@ -1,10 +1,14 @@
-
+import Image from 'next/image';
 
 import Portfolio from './portfolio/portfolio';
 import styles from './Works.module.scss';
 
 import { FaReact, FaSass, FaHtml5, FaCss3Alt } from "react-icons/fa";
 import { SiFirebase } from "react-icons/si";
+import desktop from "../../public/image.svg";
+import laptop from "../../public/image (1).svg";
+import tablet from "../../public/tablet.png";
+import phone from "../../public/image (3).svg";
 
 
 const portfolio = [
@@ -15,6 +19,9 @@ const portfolio = [
           locations and at the same time. A group programming project with Can
           Rozanes, Irene Truong and Jamie Yeung.`,
     icons: [FaHtml5, FaCss3Alt, FaReact, FaSass, SiFirebase],
+    svg: laptop,
+    svgSub: phone,
+    index: 0
   },
   {
     name: "Adventours",
@@ -23,6 +30,20 @@ const portfolio = [
           locations and at the same time. A group programming project with Can
           Rozanes, Irene Truong and Jamie Yeung.`,
     icons: [FaHtml5, FaCss3Alt, FaReact, FaSass, SiFirebase],
+    svg: desktop,
+    svgSub: phone,
+    index: 1
+  },
+  {
+    name: "Adventours",
+    paragraph: `For when you need a break from your partner but already got a
+          babysitter. Now couples can go to different events in similar
+          locations and at the same time. A group programming project with Can
+          Rozanes, Irene Truong and Jamie Yeung.`,
+    icons: [FaHtml5, FaCss3Alt, FaReact, FaSass, SiFirebase],
+    svg: tablet,
+    svgSub: phone,
+    index: 2
   },
 ];
 
@@ -37,7 +58,7 @@ const Works = () => {
       </div>
       <div className={styles.portContainer} >
         {portfolio.map((item, index) => {
-          return <Portfolio key={index} data={item} index={index} />;
+          return <Portfolio key={index} data={item} />;
         })}
       </div>
     </section>

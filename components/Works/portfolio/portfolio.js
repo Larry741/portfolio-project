@@ -1,65 +1,21 @@
-
-import Image from "next/image";
-import Link from "next/link";
+import TextComponent from "./textComponent";
 
 import styles from "./Portfolio.module.scss";
-import image from "../../../public/table.png";
+import ImageComponent from "./imageComponent";
 
-const Portfolio = ({ data, index}) => {
+const Portfolio = ({ data }) => {
 
   return (
     <>
-      {index % 2 == 0 ? (
+      {data.index % 2 == 0 ? (
         <div className={styles.portfolio}>
-          <div className={styles.control}>
-            <h3>{data.name}</h3>
-            <div className={styles.textControl}>
-              <p>{data.paragraph}</p>
-              <div className={styles.iconControl}></div>
-              {data.icons.map((Icon, index) => {
-                return <Icon key={index} />;
-              })}
-            </div>
-            <div className={styles.buttonControl}>
-              <div>
-                <Link href="#">
-                  <a>View Project</a>
-                </Link>
-                <Link href="#">
-                  <a>View Github</a>
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div className={styles.imageControl}>
-            <Image src={image} alt="work image" width={390} height={330} />
-          </div>
+          <TextComponent data={data} index={1} />
+          <ImageComponent data={data} index={data.index} />
         </div>
       ) : (
         <div className={styles.portfolio}>
-          <div className={styles.imageControl}>
-            <Image src={image} alt="work image" width={390} height={330} />
-          </div>
-          <div className={styles.control2}>
-            <h3>{data.name}</h3>
-            <div className={styles.textControl}>
-              <p>{data.paragraph}</p>
-              <div className={styles.iconControl}></div>
-              {data.icons.map((Icon, index) => {
-                return <Icon key={index} />;
-              })}
-            </div>
-            <div className={styles.buttonControl}>
-              <div>
-                <Link href="#">
-                  <a>View Project</a>
-                </Link>
-                <Link href="#">
-                  <a>View Github</a>
-                </Link>
-              </div>
-            </div>
-          </div>
+          <ImageComponent data={data} index={2} />
+          <TextComponent data={data} index={data.index} />
         </div>
       )}
     </>

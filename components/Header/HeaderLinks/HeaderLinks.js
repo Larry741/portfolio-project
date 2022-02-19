@@ -1,8 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import { useRef, useEffect } from "react";
-
 import { FaTwitter, FaLinkedinIn, FaGithub, FaInstagram } from "react-icons/fa";
+
 import styles from "./HeaderLinks.module.scss";
+import logo from '../../../public/down.jpg';
 
 const HeaderLinks = () => {
   const aboutRef = useRef();
@@ -30,7 +32,9 @@ const HeaderLinks = () => {
 
   return (
     <div className={styles.navbar}>
-      <div className={styles.logobox}></div>
+      <div className={styles.logobox}>
+        <Image src={logo} alt="logo" layout="responsive" objectFit="contain" />
+      </div>
       <div className={styles.navLinks}>
         <span onClick={scrollTo}>About</span>
         <span onClick={scrollTo}>Work</span>

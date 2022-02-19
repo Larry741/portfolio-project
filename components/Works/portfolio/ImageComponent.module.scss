@@ -1,0 +1,54 @@
+.imageControl1 {
+  justify-self: center;
+  align-self: end;
+  width: 48rem;
+  height: 28rem;
+  position: relative;
+
+  & .secondaryContainer {
+    position: absolute;
+    bottom: 0.6rem;
+    right: 0;
+    width: 12rem;
+    height: 15.5rem;
+    overflow: hidden;
+  }
+}
+
+.imageControl2 {
+  justify-self: end;
+  align-self: start;
+  width: 48rem;
+  height: 28rem;
+  position: relative;
+
+  & .secondaryContainer {
+    position: absolute;
+    bottom: -11rem;
+    right: -2rem;
+    width: 12rem;
+    height: 15.4rem;
+    overflow: hidden;
+  }
+}
+
+.imageControl3 {
+  justify-self: end;
+  align-self: start;
+  width: 48rem;
+  height: 28rem;
+  position: relative;
+  
+  img {
+    transform: rotatex(45deg);
+  }
+
+  & .secondaryContainer {
+    position: absolute;
+    bottom: -11rem;
+    right: -2rem;
+    width: 12rem;
+    height: 15.4rem;
+    overflow: hidden;
+  }
+}

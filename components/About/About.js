@@ -1,11 +1,20 @@
 /* eslint-disable react/no-unescaped-entities */
-
-import Link from 'next/link';
+import { useRef, useEffect } from 'react';
 
 import styles from './About.module.scss';
 
 const About = () => {
+  const contactRef = useRef();
 
+  useEffect(() => {
+    contactRef.current = document.getElementById("contact");
+  });
+
+  const scrollTo = (event) => {
+    if (event.target.innerText === "Get In Touch!") {
+      contactRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <section id='about' className={styles.about}>
@@ -31,11 +40,9 @@ const About = () => {
             I currently work remotely with a selected freelance client base
             being open for new opportunities.
           </p>
-          <Link href="#">
-            <a>Get In Touch!</a>
-          </Link>
+          <a onClick={scrollTo}>Get In Touch!</a>
         </div>
-        <div className={styles.stack}>
+        {/* <div className={styles.stack}>
           <span className={styles.html}>Html</span>
           <span className={styles.react}>ReactJS</span>
           <span className={styles.next}>Next</span>
@@ -48,7 +55,7 @@ const About = () => {
           <span className={styles.git}>Git</span>
           <span className={styles.Firebase}>Redux</span>
           <span>Gulp</span>
-        </div>
+        </div> */}
       </div>
     </section>
   );
