@@ -8,5 +8,16 @@
   grid-template-rows: 1fr;
   gap: 1rem;
   align-items: center;
+  transition: .6s ease-in-out;
+
+  &1 {
+    opacity: 0;
+    transform: translateX(-20rem);
+  }
+
+  &2 {
+    opacity: 0;
+    transform: translateX(20rem);
+  }
 }
 

@@ -8,7 +8,7 @@
   & .secondaryContainer {
     position: absolute;
     bottom: 0.6rem;
-    right: 0;
+    left: 0;
     width: 12rem;
     height: 15.5rem;
     overflow: hidden;
@@ -33,20 +33,16 @@
 }
 
 .imageControl3 {
-  justify-self: end;
+  justify-self: center;
   align-self: start;
   width: 48rem;
   height: 28rem;
   position: relative;
-  
-  img {
-    transform: rotatex(45deg);
-  }
 
   & .secondaryContainer {
     position: absolute;
     bottom: -11rem;
-    right: -2rem;
+    left: -2rem;
     width: 12rem;
     height: 15.4rem;
     overflow: hidden;

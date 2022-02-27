@@ -5,7 +5,7 @@ import heroImage from "../../../public/home-hongkong.jpg";
 
 import styles from "./HeaderHero.module.scss";
 
-const totalText = [`Hi, I'm Kosi, Web Developer`, `Front End`, `Back End`];
+const totalText = [`Hi, I'm Orion, Web Developer`, `Front End`, `Back End`];
 
 let i = 0;
 let counter = 1
@@ -36,8 +36,8 @@ const typeWriter = (el, index, count) => {
         j++;
       } else if (i > 13) {
         el.innerHTML = `<span>${text.slice(0, 3)}</span><br />
-                        <span>${text.slice(4, 13)}</span><br />
-                        <span>${text.slice(14)}</span>`;
+                        <span>${text.slice(3, 14)}</span><br />
+                        <span>${text.slice(15)}</span>`;
         i++;
         j++;
       }
@@ -72,7 +72,7 @@ const HeaderHero = () => {
     leftDivRef.current = document.getElementById(styles.left);
     rightDivRef.current = leftDivRef.current.nextElementSibling;
     
-    setTimeout(typeWriter.bind(null, header1, 0, 27), 500);
+    setTimeout(typeWriter.bind(null, header1, 0, 28), 500);
   
     // return () => {
     //   clearTimeout(typing);

@@ -42,8 +42,8 @@ const About = () => {
           </p>
           <a onClick={scrollTo}>Get In Touch!</a>
         </div>
-        {/* <div className={styles.stack}>
-          <span className={styles.html}>Html</span>
+        <div className={styles.stack}>
+          {/* <span className={styles.html}>Html</span>
           <span className={styles.react}>ReactJS</span>
           <span className={styles.next}>Next</span>
           <span className={styles.css}>Css</span>
@@ -54,8 +54,8 @@ const About = () => {
           <span className={styles.sass}>sass</span>
           <span className={styles.git}>Git</span>
           <span className={styles.Firebase}>Redux</span>
-          <span>Gulp</span>
-        </div> */}
+          <span>Gulp</span> */}
+        </div>
       </div>
     </section>
   );
