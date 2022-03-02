@@ -9,7 +9,7 @@ const AppBackground = () => {
   //   setWidth(document.documentElement.clientWidth);
   //   setHeight(document.documentElement.scrollHeight);
 
-  //   const pattern = trianglify({
+  //   const pattern = Trianglify({
   //     xColors: ["#38495a", "#1b2735", "#090a0f"],
   //     yColors: "match",
   //     width: width,
