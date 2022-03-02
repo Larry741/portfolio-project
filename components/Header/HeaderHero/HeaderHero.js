@@ -5,7 +5,7 @@ import heroImage from "../../../public/home-hongkong.jpg";
 
 import styles from "./HeaderHero.module.scss";
 
-const totalText = [`Hi, I'm Orion, Web Developer`, `Front End`, `Back End`];
+const totalText = [`Hey, I'm Orion, Web Developer`, `Front End`, `Back End`];
 
 let i = 0;
 let counter = 1
@@ -25,19 +25,19 @@ const typeWriter = (el, index, count) => {
   
   if (i <= fullText.length - 1) {
     if (el.id == "header1") {
-      if (i <= 3) {
+      if (i <= 4) {
         el.innerHTML = `<span>${text}</span>`;
         i++;
         j++;
       } else if (i <= 13) {
-        el.innerHTML = `<span>${text.slice(0, 3)}</span><br />
+        el.innerHTML = `<span>${text.slice(0, 4)}</span><br />
                         <span>${text.slice(4)}</span>`;
         i++;
         j++;
       } else if (i > 13) {
-        el.innerHTML = `<span>${text.slice(0, 3)}</span><br />
-                        <span>${text.slice(3, 14)}</span><br />
-                        <span>${text.slice(15)}</span>`;
+        el.innerHTML = `<span>${text.slice(0, 4)}</span><br />
+                        <span>${text.slice(4, 15)}</span><br />
+                        <span>${text.slice(16)}</span>`;
         i++;
         j++;
       }
@@ -53,7 +53,9 @@ const typeWriter = (el, index, count) => {
   if (fullText === text && index < 3 && j === 0 && i == count) {
     i = 0
     ++counter
-    el.classList.remove(styles.wrap);
+    if (el.classList.contains(styles.wrap)) {
+      el.classList.remove(styles.wrap);
+    }
     setTimeout(
       typeWriter.bind(null, document.getElementById(`header${counter}`), ++index, 9),
       100
@@ -72,7 +74,7 @@ const HeaderHero = () => {
     leftDivRef.current = document.getElementById(styles.left);
     rightDivRef.current = leftDivRef.current.nextElementSibling;
     
-    setTimeout(typeWriter.bind(null, header1, 0, 28), 500);
+    setTimeout(typeWriter.bind(null, header1, 0, 29), 500);
   
     // return () => {
     //   clearTimeout(typing);
