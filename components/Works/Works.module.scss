@@ -8,7 +8,7 @@
   & .header {
     display: grid;
     grid-template-columns: 1fr max-content 1fr;
-    gap: 6rem;
+    gap: 8rem;
 
     & h2 {
       position: relative;
@@ -17,7 +17,7 @@
         content: '<h2>';
         position: absolute;
         top: 50%;
-        left: -4rem;
+        left: -7rem;
         transform: translateY(-50%);
       }
 
@@ -25,7 +25,7 @@
         content: '</h2>';
         position: absolute;
         top: 50%;
-        right: -4.5rem;
+        right: -8rem;
         transform: translateY(-50%);
       }
     }
@@ -33,7 +33,7 @@
     & div {
       border-bottom: 0.5px solid goldenrod;
       height: 0;
-      width: 30rem;
+      max-width: 30rem;
       align-self: center;
     }
   

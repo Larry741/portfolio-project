@@ -10,8 +10,11 @@
   background: radial-gradient(ellipse at bottom, rgba(#1b2735, .85) 0%, rgba(#090a0f, .85) 100%);
   color: white;
   position: fixed;
-  top: 0;
+  top: 0rem;
+  transform: translateY(-7rem);
+  opacity: .5;
   z-index: 20;
+  animation: slideIn .5s ease forwards;
 }
 
 .logobox {
@@ -64,4 +67,14 @@
   }
 }
 
+@keyframes slideIn {
+  from {
+    transform: translateY(-7rem);
+    opacity: .5;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 

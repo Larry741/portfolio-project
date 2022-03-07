@@ -1,9 +1,14 @@
-import '../styles/globals.scss'
+// import { Provider } from "react-redux";
+import { WidthContextProvider } from "../components/store/width-context";
+
+import "../styles/globals.scss";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Component {...pageProps} />
+    <WidthContextProvider>
+      <Component {...pageProps} />
+    </WidthContextProvider>
   );
 }
 
-export default MyApp
+export default MyApp;

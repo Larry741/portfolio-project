@@ -1,41 +1,31 @@
-import { useEffect, useState } from "react";
-import Trianglify from "trianglify";
+import { useContext, useEffect } from "react";
+import WidthContext from "../store/width-context";
 
 const AppBackground = () => {
-  const [width, setWidth] = useState(1);
-  const [height, setHeight] = useState(1);
+  const { docWidth, docHeight} = useContext(WidthContext);
 
-  // useEffect(() => {
-  //   setWidth(document.documentElement.clientWidth);
-  //   setHeight(document.documentElement.scrollHeight);
+  useEffect(() => {
+    // setWidth(document.documentElement.clientWidth);
+    // setHeight(document.documentElement.scrollHeight);
+    // const pattern = trianglify({
+    //   xColors: ["#38495a", "#1b2735", "#090a0f"],
+    //   yColors: "match",
+    //   width: docWidth,
+    //   height: docHeight,
+    //   colorFunction: trianglify.colorFunctions.sparkle(0.2),
+    //   cellSize: 50,
+    // });
+    // document.body.prepend(pattern.toSVG());
+    // document.body.firstElementChild.style.position = "absolute";
+    // document.body.firstElementChild.style.top = 0;
+    // document.body.firstElementChild.style.zIndex = -20;
+  }, []);
 
-  //   const pattern = Trianglify({
-  //     xColors: ["#38495a", "#1b2735", "#090a0f"],
-  //     yColors: "match",
-  //     width: width,
-  //     height: height,
-  //     colorFunction: trianglify.colorFunctions.sparkle(0.2),
-  //     cellSize: 50,
-  //   });
-  //   document.body.prepend(pattern.toSVG());
-  //   document.body.firstElementChild.style.position = "absolute";
-  //   document.body.firstElementChild.style.top = 0;
-  //   document.body.firstElementChild.style.zIndex = -20;
-
-  //   const resetParameters = () => {
-  //     setWidth(document.documentElement.clientWidth);
-  //     setHeight(document.documentElement.scrollHeight);
-  //   };
-
-  //   window.addEventListener("resize", resetParameters);
-
-  //   return () => {
-  //     document.body.firstElementChild.remove();
-  //     window.removeEventListener("resize", resetParameters);
-  //   };
-  // }, [width, height]);
-
-  return <></>;
-};
+  return (
+    <>
+      <div></div>
+    </>
+  );
+}; 
 
 export default AppBackground;
