@@ -1,6 +1,6 @@
 .imageControl1 {
   justify-self: center;
-  align-self: end;
+  align-self: center;
   width: 48rem;
   height: 28rem;
   position: relative;
@@ -15,8 +15,8 @@
   }
 }
 
-.imageControl2 {
-  justify-self: end;
+.imageControl3 {
+  justify-self: start;
   align-self: start;
   width: 48rem;
   height: 28rem;
@@ -25,24 +25,25 @@
   & .secondaryContainer {
     position: absolute;
     bottom: -11rem;
-    right: -2rem;
+    left: -2rem;
     width: 12rem;
     height: 15.4rem;
     overflow: hidden;
   }
 }
 
-.imageControl3 {
-  justify-self: center;
-  align-self: start;
-  width: 48rem;
-  height: 28rem;
+.imageControl2 {
+  margin: 5rem 0 0 5rem;
+  justify-self: start;
+  align-self:  start;
+  width: 33rem;
+  height: 13rem;
   position: relative;
 
   & .secondaryContainer {
     position: absolute;
-    bottom: -7.7rem;
-    left: 6rem;
+    bottom: -12.3rem;
+    right: -1.5rem;
     width: 12rem;
     height: 15.4rem;
     overflow: hidden;

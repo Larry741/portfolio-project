@@ -9,8 +9,8 @@ const WidthContext = react.createContext({
 });
 
 export const WidthContextProvider = (props) => {
-  const [docWidth, setDocWidth] = useState(0);
-  const [docHeight, setDocHeight] = useState(0);
+  const [docWidth, setDocWidth] = useState(1);
+  const [docHeight, setDocHeight] = useState(1);
   const [introRefRight, setIntroRefRight] = useState(0);
   const [introRef2Right, setIntroRef2Right] = useState(0);
   const [introRef3Left, setIntroRef3Left] = useState(0);
@@ -47,27 +47,41 @@ export const WidthContextProvider = (props) => {
     window.addEventListener("resize", resetWidthFunction);
 
     return () => {
-      document.body.firstElementChild.remove();
       window.removeEventListener("resize", resetWidthFunction);
     };
   }, [])
 
   useEffect(() => {
-    setWidth(document.documentElement.clientWidth);
-    setHeight(document.documentElement.scrollHeight);
-    const pattern = trianglify({
-      xColors: ["#38495a", "#1b2735", "#090a0f"],
-      yColors: "match",
-      width: docWidth,
-      height: docHeight,
-      colorFunction: trianglify.colorFunctions.sparkle(0.2),
-      cellSize: 50,
-    });
-    document.body.prepend(pattern.toSVG());
-    document.body.firstElementChild.style.position = "absolute";
-    document.body.firstElementChild.style.top = 0;
-    document.body.firstElementChild.style.zIndex = -20;
-  }, [])
+    const radialGradient = (radius) => ({centroid, xScale}) => {
+      const distanceFromCenter = Math.sqrt(
+        Math.pow(docWidth / 2 - centroid.x, 2) + Math.pow(docHeight / 2 - centroid.y, 2)
+      );
+      return(xScale(distanceFromCenter / radius))
+    }
+    // figure out the gradient radius required to cover the image dimensions:
+    const gradientRadius = Math.sqrt(
+      Math.pow(docWidth / 2, 2) + Math.pow(docHeight / 2, 2)
+    );
+
+    // const pattern = trianglify({
+    //   xColors: ["#38495a", "#1b2735", "#090a0f"],
+    //   yColors: ["#090a0f", "#1b2735", "#38495a"],
+    //   width: docWidth,
+    //   height: docHeight,
+    //   colorFunction: radialGradient(gradientRadius),
+    //   // colorFunction: trianglify.colorFunctions.sparkle(0.2)
+    //   cellSize: 80,
+    //   strokeWidth: 50,
+    // });
+    // document.body.prepend(pattern.toSVG());
+    // document.body.firstElementChild.style.position = "absolute";
+    // document.body.firstElementChild.style.top = 0;
+    // document.body.firstElementChild.style.zIndex = -20;
+
+    // return () => {
+    //   document.body.firstElementChild.remove();
+    // }
+  }, [docWidth, docHeight])
 
   const resetWidthHandler = (width) => {
     setWidth(width);

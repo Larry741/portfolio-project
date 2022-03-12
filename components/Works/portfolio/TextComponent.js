@@ -5,6 +5,7 @@ import styles from "./TextComponent.module.scss";
 const TextComponent = ({data, index}) => {
 
   const control2 = index == 1 ? styles.control1 : styles.control2;
+  
 
   return (
     <div className={`${styles.control} ${control2}`}>

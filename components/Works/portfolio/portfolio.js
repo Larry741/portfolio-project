@@ -15,7 +15,7 @@ const Portfolio = ({ data }) => {
       ) : (
         <div id='portfolio2' className={`${styles.portfolio} portfolio ${styles.portfolio2}`}>
           <ImageComponent data={data} index={2} />
-          <TextComponent data={data} index={data.index} />
+          <TextComponent data={data} index={2} />
         </div>
       )}
     </>

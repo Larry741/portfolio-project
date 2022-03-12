@@ -4,17 +4,20 @@
   position: relative;
 
   & p {
+    margin: 0;
     visibility: visible;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 5;
     text-overflow: ellipsis;
     overflow: hidden;
+    text-align: justify;
   }
 
   & h3 {
     margin: 0;
     position: relative;
+    text-align: justify;
 
     &::before {
       content: "<h3>";
@@ -32,25 +35,26 @@
   }
 
   & .textControl {
-    margin-top: 2.6rem;
+    margin-top: 0rem;
     position: relative;
 
     &::before {
       content: "<p>";
-      position: absolute;
+      // position: absolute;
       left: -2rem;
       top: -1rem;
     }
 
     &::after {
       content: "</p>";
-      position: absolute;
+      // position: absolute;
       left: -2rem;
       bottom: -1.5rem;
     }
   }
 
   & .iconControl {
+    margin-top: 3.5rem;
     font-size: 2.3rem;
     display: grid;
     grid-template-columns: repeat(15, 1fr);
@@ -59,9 +63,9 @@
   }
 
   & .buttonControl {
-    position: absolute;
+    // position: absolute;
     width: max-content;
-    bottom: 1rem;
+    margin-top: .3rem;
 
     &::before {
       content: "<a>";
@@ -89,7 +93,7 @@
 }
 
 .control1 {
-  justify-self: end;
+  justify-self: start;
 }
 
 .control2 {

@@ -7,8 +7,11 @@ const useInput = (validationFn) => {
   const inputIsValid = validationFn(enteredValue);
   const inputIsInvalid = !inputIsValid && inputIsTouched;
 
-  const inputBlurHandler = () => {
+  const inputBlurHandler = (event) => {
     setInputIsTouched(true);
+    if (enteredValue == "") {
+      event.target.previousElementSibling.removeAttribute('id');
+    }
   };
 
   const valueChangeHandler = (event) => {

@@ -67,6 +67,8 @@ const typeWriter = (el, index, count) => {
 const calculateBackgroundPercent = (el, elWidth, elDisplacement, screenSlit, operator, eventClientX) => {
   const elPercentageWidth = elWidth /20;
   let num
+
+  el.style.opacity = 1;
    
   if (operator === 'greater than') {
     num = elPercentageWidth * 20;
@@ -131,6 +133,10 @@ const calculateBackgroundPercent = (el, elWidth, elDisplacement, screenSlit, ope
     if (eventClientX >= elDisplacement + screenSlit * 2 + elPercentageWidth * 20) {
       num = 0;
     }
+    if (eventClientX >= elDisplacement + screenSlit * 2 + elPercentageWidth * 21) {
+      num = 0;
+      el.style.opacity = 0;
+    }
   } else if (operator === 'less than') {
     num = elPercentageWidth * 20;
 
@@ -194,6 +200,10 @@ const calculateBackgroundPercent = (el, elWidth, elDisplacement, screenSlit, ope
     if (eventClientX <= (elDisplacement - screenSlit * 2) - (elPercentageWidth * 20)) {
       num = 0;
     }
+    if (eventClientX <= (elDisplacement - screenSlit * 2) - (elPercentageWidth * 21)) {
+      num = 0;
+      el.style.opacity = 0;
+    }
   }
   el.style.width = `${num}px`;
 }
@@ -209,14 +219,19 @@ const HeaderHero = () => {
   
   useEffect(() => {
     const header1 = document.getElementById('header1');
-    introRef.current = document.getElementById('intro1');
-    introRef2.current = introRef.current.nextElementSibling;
-    introRef3.current = document.getElementById("intro3");
+    const intro = document.querySelectorAll(`.${styles.intro}`);
+    introRef.current = intro[0];
+    introRef2.current = intro[1];
+    introRef3.current = intro[2];
     
     setTimeout(typeWriter.bind(null, header1, 0, 29), 3000);
   }, []);
 
   useEffect(() => {
+    const intro = document.querySelectorAll(`.${styles.intro}`);
+    introRef.current = intro[0];
+    introRef2.current = intro[1];
+    introRef3.current = intro[2];
     const heroBg = document.getElementById('hero');
     leftDivRef.current = document.getElementById(styles.left);
     rightDivRef.current = document.getElementById(styles.right);
@@ -230,6 +245,11 @@ const HeaderHero = () => {
         heroBg.style.backgroundImage = "url(/home-hongkong.jpg)";
       }, 2000);
       setTimeout(setDisplayToFalse, 3000);
+      setTimeout(() => {
+        intro.forEach((el) => {
+          el.style.opacity = '1';
+        })
+      }, 2500)
     }
     imageChangeHandler();
   })

@@ -29,7 +29,7 @@ const portfolio = [
           locations and at the same time. A group programming project with Can
           Rozanes, Irene Truong and Jamie Yeung.`,
     icons: [FaHtml5, FaCss3Alt, FaReact, FaSass, SiFirebase],
-    svg: desktop,
+    svg: tablet,
     svgSub: phone,
     index: 1,
   },
@@ -40,7 +40,7 @@ const portfolio = [
           locations and at the same time. A group programming project with Can
           Rozanes, Irene Truong and Jamie Yeung.`,
     icons: [FaHtml5, FaCss3Alt, FaReact, FaSass, SiFirebase],
-    svg: tablet,
+    svg: desktop,
     svgSub: phone,
     index: 2,
   },

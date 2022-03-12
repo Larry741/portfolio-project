@@ -52,31 +52,32 @@
   }
 
   & .body {
-    width: 80%;
+    width: 68%;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     position: relative;
 
-    & .para {
-      width: 45rem;
-      height: max-content;
-      border-radius: 50%;
-      justify-self: center;
-      align-self: center;
-
-      &::before {
+    &::before {
         content: "<p>";
         position: absolute;
-        left: 7rem;
+        left: -2rem;
+        top: 1.5rem;
       }
 
       &::after {
         content: "</p>";
         position: absolute;
         bottom: 0rem;
-        left: 7rem;
+        left: -2rem;
       }
+
+    & .para {
+      width: 45rem;
+      height: max-content;
+      border-radius: 50%;
+      justify-self: start;
+      align-self: center;
     }
 
     & a {
