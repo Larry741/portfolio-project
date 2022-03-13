@@ -31,9 +31,8 @@
   left: 7%;
   padding: 0 0 2.5rem 2.5rem ;
   height: 22.6rem;
-  pointer-events: none;
   width: 47.2rem;
-  transition: 1.5s;
+  transition: 1.5s, opacity 2s;
   // &::after {
   //   content: '|';
   // }
@@ -48,7 +47,7 @@
   height: 9.4rem;
   pointer-events: none;
   width: 28rem;
-  transition: 1.6s;
+  transition: 1.6s, opacity 2s;
   // overflow-y: hidden;
 }
 
@@ -60,7 +59,7 @@
   height: max-content;
   height: 9.4rem;
   pointer-events: none;
-  transition: 1.6s;
+  transition: 1.6s, opacity 2s;
   width: 23rem;
 }
 

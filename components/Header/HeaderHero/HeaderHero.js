@@ -304,8 +304,12 @@ const HeaderHero = () => {
         );
       } else {
         introRef.current.style.removeProperty('width');
+        introRef.current.style.opacity = 1;
         introRef2.current.style.removeProperty('width');
+        introRef2.current.style.opacity = 1;
         introRef3.current.style.removeProperty("width");
+        introRef3.current.style.opacity = 1;
+
       }
 
       leftDivRef.current.style.flexBasis = `${50 + percentDiff}%`;
@@ -317,8 +321,11 @@ const HeaderHero = () => {
     leftDivRef.current.style.flexBasis = `50%`;
     rightDivRef.current.style.flexBasis = `50%`;
     introRef.current.style.removeProperty('width');
+    introRef.current.style.opacity = 1;
     introRef2.current.style.removeProperty('width');
+    introRef2.current.style.opacity = 1;
     introRef3.current.style.removeProperty("width");
+    introRef3.current.style.opacity = 1;
   }
 
   const dummyMouseEvent = () => {}
