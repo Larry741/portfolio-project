@@ -62,13 +62,13 @@
         content: "<p>";
         position: absolute;
         left: -2rem;
-        top: 1.5rem;
+        top: 0rem;
       }
 
       &::after {
         content: "</p>";
         position: absolute;
-        bottom: 0rem;
+        bottom: -3rem;
         left: -2rem;
       }
 

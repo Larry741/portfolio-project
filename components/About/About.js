@@ -212,14 +212,16 @@ const About = () => {
       <div className={styles.body}>
         <div className={styles.para}>
           <p>
-            I'm a self-taught full stack web developer with over a decade worth
-            of experience working with all types of companies and individuals.
+            I'm a self-taught full stack web developer with over 5 years worth
+            of opportunities working with a wide array of companies and
+            individuals that has afforded me a significant amount of experience.
             {/* have gained invaluable knowledge ?? */}
           </p>
           <p>
-            I'm passionate about creating fascinating solutions to problems and
+            I'm passionate about using my problem solving skills in creating fascinating solutions to problems and
             bringing ideas to life writing clean, efficient and maintainable
-            code.
+            code. I've made numerous side projects and especially love
+            manipulating react for spell-binding UI.
           </p>
           <p>
             I currently work remotely with a selected freelance client base
@@ -240,6 +242,7 @@ const About = () => {
           <span className={styles.sass}>sass</span>
           <span className={styles.git}>Git</span>
           <span className={styles.Firebase}>Redux</span>
+          <span className={styles.solidity}>solidity</span>
           <span>Gulp</span> */}
         {/* </div> */}
       </div>

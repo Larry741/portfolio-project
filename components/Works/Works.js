@@ -6,7 +6,7 @@ import styles from "./Works.module.scss";
 import { FaReact, FaSass, FaHtml5, FaCss3Alt } from "react-icons/fa";
 import { SiFirebase } from "react-icons/si";
 import desktop from "../../public/Desktop temp.svg";
-import laptop from "../../public/screnedpic.png";
+import laptop from "../../public/laptop temp.svg";
 import tablet from "../../public/tablet temp.png";
 import phone from "../../public/phone temp.svg";
 
