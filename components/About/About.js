@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useRef, useEffect } from 'react';
 import * as THREE from "three";
-import { FontLoader } from 'three';
+import { FontLoader, TextureLoader } from 'three';
 
 import styles from './About.module.scss';
 
@@ -13,48 +13,48 @@ const About = () => {
   });
 
   useEffect(() => {
-    const main = () => {
-      const canvas = document.querySelector(`#${styles.canvas1}`);
-      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+    // const main = () => {
+    //   const canvas = document.querySelector(`#${styles.canvas1}`);
+    //   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
 
-      const fov = 75;
-      const aspect = 2; // the canvas default
-      const near = 0.1;
-      const far = 5;
-      const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-      camera.position.z = 2;
+    //   const fov = 75;
+    //   const aspect = 2; // the canvas default
+    //   const near = 0.1;
+    //   const far = 5;
+    //   const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+    //   camera.position.z = 2;
 
-      const scene = new THREE.Scene();
-      scene.background = null
+    //   const scene = new THREE.Scene();
+    //   scene.background = null
       
-      const geometry = new THREE.SphereGeometry(1.1, 20, 10);
-      const material = new THREE.MeshPhongMaterial({ color: 0x44aa88 });
-      const sphere = new THREE.Mesh(geometry, material);
+    //   const geometry = new THREE.SphereGeometry(1.1, 100, 100);
+    //   const material = new THREE.MeshPhongMaterial({ color: 0x44aa88 });
+    //   const sphere = new THREE.Mesh(geometry, material);
 
-      const color = 0xffffff;
-      const intensity = 1;
-      const light = new THREE.DirectionalLight(color, intensity);
-      light.position.set(-1, 2, 4);
+    //   const color = 0xffffff;
+    //   const intensity = 1;
+    //   const light = new THREE.DirectionalLight(color, intensity);
+    //   light.position.set(-1, 2, 4);
 
-      scene.add(light);
-      scene.add(sphere);
+    //   scene.add(light);
+    //   scene.add(sphere);
 
-      renderer.render(scene, camera);
+    //   renderer.render(scene, camera);
 
-      function render(time) {
-        time *= 0.001; // convert time to seconds
+    //   function render(time) {
+    //     time *= 0.001; // convert time to seconds
 
-        sphere.rotation.x = time;
-        // sphere.rotation.y = time;
+    //     sphere.rotation.x = time;
+    //     // sphere.rotation.y = time;
 
-        renderer.render(scene, camera);
+    //     renderer.render(scene, camera);
 
-        requestAnimationFrame(render);
-      }
-      requestAnimationFrame(render);
-    };;
+    //     requestAnimationFrame(render);
+    //   }
+    //   requestAnimationFrame(render);
+    // };;
 
-    main();
+    // main();
 
     // function main() {
     //   const canvas = document.querySelector("#c");
@@ -229,7 +229,7 @@ const About = () => {
           </p>
           <a onClick={scrollTo}>Get In Touch!</a>
         </div>
-        <canvas id={styles.canvas1} width={500} height={400} />
+        {/* <canvas id={styles.canvas1} width={150} height={400} style={{display: "block", width: 500 + 'px', height: 400 + 'px'}} /> */}
         {/* <div className={styles.stack}>
           {/* <span className={styles.html}>Html</span>
           <span className={styles.react}>ReactJS</span>

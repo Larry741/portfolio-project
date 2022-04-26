@@ -1,7 +1,5 @@
 .imageControl1 {
-  justify-self: center;
-  align-self: center;
-  width: 48rem;
+  flex-basis: 48rem;
   height: 28rem;
   position: relative;
 
@@ -16,9 +14,8 @@
 }
 
 .imageControl3 {
-  justify-self: start;
   align-self: start;
-  width: 48rem;
+  flex-basis: 48rem;
   height: 28rem;
   position: relative;
 
@@ -33,10 +30,10 @@
 }
 
 .imageControl2 {
-  margin: 5rem 0 0 5rem;
-  justify-self: start;
-  align-self:  start;
-  width: 33rem;
+  // width: 33rem;
+  margin: 4rem 6rem 0 0;
+  flex-basis: 33rem;
+  align-self: flex-start;
   height: 13rem;
   position: relative;
 

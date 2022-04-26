@@ -1,6 +1,5 @@
 .contact {
-  // height: 100vh;
-  padding: 4rem 0 4rem 0;
+  padding: 4rem;
   display: grid;
   grid-template-rows: max-content max-content;
   gap: 4rem;
@@ -14,22 +13,6 @@
 
     & h2 {
       position: relative;
-
-      &::before {
-        content: "<h2>";
-        position: absolute;
-        top: 50%;
-        left: -7rem;
-        transform: translateY(-50%);
-      }
-
-      &::after {
-        content: "</h2>";
-        position: absolute;
-        top: 50%;
-        right: -8rem;
-        transform: translateY(-50%);
-      }
     }
 
     & div {
@@ -49,54 +32,27 @@
   }
 
   & .body {
-    // display: grid;
-    // // grid-template-columns: 1fr 1fr;
-    // justify-items: center;
-    // margin-left: 25rem;
-    width: 68%;
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    & > div {
+      flex-basis: 105rem;
+    }
 
     & p {
       line-height: 1.5;
       position: relative;
       margin-bottom: 5rem;
-
-      &::before {
-        content: "<p>";
-        position: absolute;
-        top: -2rem;
-        left: -2rem;
-      }
-
-      &::after {
-        content: "</p>";
-        position: absolute;
-        bottom: -2rem;
-        left: -2rem;
-      }
     }
   }
 
   .form {
     height: max-content;
-    width: 55%;
+    width: 70rem;
     padding: 2rem 0;
     margin-bottom: 2rem;
     position: relative;
-
-    &::before {
-      content: "<Form>";
-      position: absolute;
-      top: .5rem;
-      left: -2rem;
-    }
-
-    &::after {
-      content: "</Form>";
-      position: absolute;
-      bottom: -1rem;
-      left: -2rem;
-    }
 
     .control {
       // display: grid;
@@ -174,10 +130,25 @@
       }
     }
 
-    & button {
-      padding: 1.5rem 2.5rem;
-      background-color: bisque;
-       border: none;
+    & .buttonControl {
+      position: relative;
+
+      & button {
+        padding: 1.5rem 2.5rem;
+        background-color: bisque;
+         border: none;
+        position: relative;
+      }
+
+      & p {
+        position: absolute;
+        right: 0;
+      }
+
+      & .message {
+        margin-left: 1.5rem;
+        font-size: 1.4rem;
+      }
     }
   }
 }

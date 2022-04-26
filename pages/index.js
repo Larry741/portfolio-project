@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 import Head from "next/head";
 import About from "../components/About/About";
 import Contact from "../components/Contact/Contact";

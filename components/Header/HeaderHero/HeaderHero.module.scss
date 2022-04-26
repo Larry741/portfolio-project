@@ -22,112 +22,32 @@
   background-clip: text;
   overflow: hidden;
   white-space: nowrap;
-  opacity: 0;
 }
 
 .intro1 {
   position: absolute;
   top: 22%;
   left: 7%;
-  padding: 0 0 2.5rem 2.5rem ;
+  padding: 0 0 2.5rem 2.5rem;
   height: 22.6rem;
-  width: 47.2rem;
-  transition: 1.5s, opacity 2s;
-  // &::after {
-  //   content: '|';
-  // }
+  width: 54rem;
+  transition: 1.5s;
 }
 
-.intro2 {
-  padding: 1.5rem 0 1.5rem 2rem ;
-  position: absolute;
-  top: 80%;
-  left: 20%;
-  height: max-content;
-  height: 9.4rem;
-  pointer-events: none;
-  width: 28rem;
-  transition: 1.6s, opacity 2s;
-  // overflow-y: hidden;
-}
-
-.intro3 {
-  padding: 1.5rem 1.5rem 1.5rem 0rem ;
-  position: absolute;
-  top: 80%;
-  right: 20%;
-  height: max-content;
-  height: 9.4rem;
-  pointer-events: none;
-  transition: 1.6s, opacity 2s;
-  width: 23rem;
+#dynText {
+  color: #fff;
 }
 
 .wrap {
   border-right: 0.08em solid #fff;
   animation: caret 1s steps(1) infinite;
+  margin: 0;
+  font-size: 5rem;
+  display: inline;
 
-  &1 {
+  & p {
     margin: 0;
-    font-size: 5rem;
-    // color: #fff;
-    display: inline;
-
-    &::before {
-      content: '<h1>';
-      position: absolute;
-      top: -.5rem;
-      left: 0rem;
-    }
-
-    &::after {
-      content: '</h1>';
-      position: absolute;
-      top: 20rem;
-      left: 0rem;
-    }
-  }
-
-  &2 {
-    margin: 0;
-    font-size: 4.8rem;
-    display: inline;
-    white-space: nowrap;
-
-    &::before {
-      content: '<h2>';
-      position: absolute;
-      top: .4rem;
-      left: 0rem;
-    }
-
-    &::after {
-      content: '</h2>';
-      position: absolute;
-      bottom: 0rem;
-      left: 0rem;
-    }
-  }
-
-  &3 {
-    margin: 0;
-    font-size: 4.8rem;
-    display: inline;
-    // writing-mode: horizontal-tb;
-
-    &::before {
-      content: '<h2>';
-      position: absolute;
-      top: .1rem;
-      right: 0rem;
-    }
-
-    &::after {
-      content: '</h2>';
-      position: absolute;
-      bottom: 0rem;
-      right: 0rem;
-    }
+    padding: 0;
   }
 }
 
@@ -144,7 +64,7 @@
   overflow: hidden;
   transform: translatex(-70%);
   opacity: 0;
-  animation: slideIn 1s ease-out .7s forwards;
+  animation: slideIn 1s ease-out 0.7s forwards;
 }
 
 #right {
@@ -155,7 +75,7 @@
   text-indent: -100%;
   transform: translatex(70%);
   opacity: 0;
-  animation: slideIn 1s ease-out .7s forwards;
+  animation: slideIn 1s ease-out 0.7s forwards;
 }
 
 @keyframes slideIn {

@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const useInput = (validationFn) => {
   const [enteredValue, setEnteredValue] = useState("");
   const [inputIsTouched, setInputIsTouched] = useState(false);
+  const inputRef = useRef('');
+  const labelRef = useRef('');
 
   const inputIsValid = validationFn(enteredValue);
   const inputIsInvalid = !inputIsValid && inputIsTouched;
@@ -19,6 +21,8 @@ const useInput = (validationFn) => {
   };
 
   const reset = () => {
+    inputRef.current.value = '';
+    labelRef.current.removeAttribute('id');
     setEnteredValue("");
     setInputIsTouched(false);
   };
@@ -27,6 +31,8 @@ const useInput = (validationFn) => {
     enteredValue,
     inputIsValid,
     inputIsInvalid,
+    inputRef,
+    labelRef,
     inputBlurHandler,
     valueChangeHandler,
     reset,

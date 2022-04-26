@@ -1,5 +1,5 @@
 .about {
-  padding: 6rem 0 ;
+  padding: 6rem 2rem;
   width: 100%;
   // height: 95vh;
   font-size: 2rem;
@@ -17,22 +17,6 @@
 
     & h2 {
       position: relative;
-
-      &::before {
-        content: "<h2>";
-        position: absolute;
-        top: 50%;
-        left: -6.5rem;
-        transform: translateY(-50%);
-      }
-
-      &::after {
-        content: "</h2>";
-        position: absolute;
-        top: 50%;
-        right: -7.5rem;
-        transform: translateY(-50%);
-      }
     }
 
     & div {
@@ -52,25 +36,11 @@
   }
 
   & .body {
-    width: 68%;
+    width: 100%;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: center;
     position: relative;
-
-    &::before {
-        content: "<p>";
-        position: absolute;
-        left: -2rem;
-        top: 0rem;
-      }
-
-      &::after {
-        content: "</p>";
-        position: absolute;
-        bottom: -3rem;
-        left: -2rem;
-      }
 
     & .para {
       width: 45rem;
