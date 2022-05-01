@@ -1,5 +1,4 @@
 // import { Provider } from "react-redux";
-import Head from "next/head";
 import Script from "next/script";
 import { WidthContextProvider } from "../components/store/width-context";
 
@@ -9,8 +8,8 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Script
-        src="https://unpkg.com/trianglify@^4/dist/trianglify.bundle.js"
-        id="trianglify cdn"
+        src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/build/ol.js"
+        id="google maps cdn"
         strategy="beforeInteractive"
       ></Script>
       <WidthContextProvider>

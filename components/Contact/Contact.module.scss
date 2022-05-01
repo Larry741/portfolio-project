@@ -1,10 +1,12 @@
 .contact {
-  padding: 4rem;
+  padding: 4rem 4rem 0 4rem;
   display: grid;
   grid-template-rows: max-content max-content;
   gap: 4rem;
+  grid-auto-rows: max-content;
   overflow: hidden;
   font-size: 2rem;
+  position: relative;
 
   & .header {
     display: grid;
@@ -32,122 +34,205 @@
   }
 
   & .body {
+    // position: absolute;
+    // z-index: 10;
+    // display: flex;
+    // margin-left: 10rem;
+    // justify-content: flex-start;
+    // width: 100%;
     display: flex;
     justify-content: center;
-    width: 100%;
+  }
 
-    & > div {
-      flex-basis: 105rem;
+  .mapContainer {
+    flex-basis: 115rem;
+    position: relative;
+
+    & .map {
+      // position: absolute;
+      z-index: -20;
+      height: 60rem;
     }
 
-    & p {
-      line-height: 1.5;
-      position: relative;
-      margin-bottom: 5rem;
+    & .mapContact {
+      position: absolute;
+      width: 35rem;
+      height: 68rem;
+      left: 0;
+      bottom: -64%;
+      background-color: $color-footer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
     }
   }
 
-  .form {
-    height: max-content;
-    width: 70rem;
-    padding: 2rem 0;
-    margin-bottom: 2rem;
-    position: relative;
+  .formBody {
+    display: flex;
+    justify-content: center;
+    margin-top: -1rem;
 
-    .control {
-      // display: grid;
-      // grid-template-rows: 5rem;
-      // grid-template-columns: 1fr 1fr 1fr;
-      margin: 2.5rem 0 2rem;
-      position: relative;
-
-      & label {
-        color: grey;
-        font-size: 1.5rem;
-        font-weight: 600;
-        margin-left: 1rem;
-        margin-top: 0.7rem;
-        padding: 0rem .5rem .2rem;
-        display: block;
-        transition: all 0.3s;
-        position: absolute;
-        top: 16%;
-        opacity: 1;
-      }
-
-      & input {
-        font-size: 1.5rem;
-        font-family: inherit;
-        color: inherit;
-        padding: 2rem 2rem;
-        border-radius: 2px;
-        background-color: white;
-        border: none;
-        border-bottom: 3px solid transparent;
-        width: 90%;
-        display: block;
-        transition: all 0.3s;
-        color: black;
-
-        // @include respond(tab-port) {
-        //     width: 100%;
-        // }
-        &:focus {
-          outline: none;
-          box-shadow: 0 1rem 2rem rgba(black, 0.1);
-          border-color: 3px solid black;
-        }
-
-        &::placeholder {
-          opacity: 0;
-        }
-      }
-
-      & textarea {
-        font-size: 1.5rem;
-        font-family: inherit;
-        color: black;
-        padding: 2rem 2rem;
-        border-radius: 2px;
-        background-color: white;
-        border: none;
-        border-bottom: 3px solid transparent;
-        width: 90%;
-        display: block;
-        transition: all 0.3s;
-        margin-bottom: 4rem;
-        resize: vertical;
-
-        &:focus {
-          outline: none;
-          box-shadow: 0 1rem 2rem rgba(black, 0.1);
-          border-color: 3px solid black;
-        }
-
-        &::placeholder {
-          opacity: 0;
-        }
-      }
+    & .formContainer {
+      flex-basis: 115rem;
+      display: flex;
+    }
+    
+    & .formPlaceHolder {
+      flex-basis: 35rem;
+      flex-shrink: 0;
+    }
+    
+    & .containerControl {
+      flex-basis: 100%;
+      display: flex;
+      justify-content: center;
     }
 
-    & .buttonControl {
-      position: relative;
+    & .formControl {
+      flex-grow: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 62rem;
 
-      & button {
-        padding: 1.5rem 2.5rem;
-        background-color: bisque;
-         border: none;
-        position: relative;
+      & .para {
+        // display: flex;
+        // justify-content: center;
+
+        span {
+          margin-top: 0;
+          font-size: 1.7rem;
+          display: block;
+          margin-bottom: 3rem;
+          color: gray;
+        }
+
+        h3 {
+          // font-size: ;
+        }
+
+        p {
+          // margin: 0;
+          font-size: 2rem;
+        }
       }
 
-      & p {
-        position: absolute;
-        right: 0;
-      }
+      & .form {
+        height: max-content;
+        width: 62rem;
+        margin-bottom: 2rem;
 
-      & .message {
-        margin-left: 1.5rem;
-        font-size: 1.4rem;
+        & .inputControl {
+          display: flex;
+          justify-content: space-between;
+
+          & .control {
+            margin: 2.5rem 0 2rem;
+            width: 49%;
+          }
+        }
+        & .control2 {
+          margin: 1rem 0 2rem;
+        }
+
+        & .control, .control2 {
+          position: relative;
+
+          & label {
+            color: grey;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-left: 1rem;
+            margin-top: 0.7rem;
+            padding: 0rem 0.5rem 0.2rem;
+            display: block;
+            transition: all 0.3s;
+            position: absolute;
+            top: 16%;
+            opacity: 1;
+          }
+
+          & input {
+            font-size: 1.5rem;
+            font-family: inherit;
+            color: inherit;
+            padding: 2rem 2rem;
+            border-radius: 2px;
+            background-color: $color-footer;
+            border: 1px solid gray;
+            width: 100%;
+            transition: all 0.3s;
+            color: black;
+
+            // @include respond(tab-port) {
+            //     width: 100%;
+            // }
+            &:focus {
+              outline: none;
+              box-shadow: 0 1rem 2rem rgba(black, 0.1);
+              border-color: 3px solid black;
+            }
+
+            &::placeholder {
+              opacity: 0;
+            }
+          }
+
+          & textarea {
+            font-size: 1.5rem;
+            font-family: inherit;
+            color: black;
+            padding: 2rem 2rem;
+            border-radius: 2px;
+            background-color: $color-footer;
+            border: 1px solid gray;
+            // border-bottom: 3px solid transparent;
+            width: 100%;
+            display: block;
+            transition: all 0.3s;
+            margin-bottom: 4rem;
+            resize: vertical;
+
+            &:focus {
+              outline: none;
+              box-shadow: 0 1rem 2rem rgba(black, 0.1);
+              border-color: 3px solid black;
+            }
+
+            &::placeholder {
+              opacity: 0;
+            }
+          }
+        }
+
+        & .buttonControl {
+          position: relative;
+
+          & button {
+            border-radius: 3px;
+            padding: 1.2rem 2.2rem;
+            background-color: $color-secondary;
+            // border-radius: 5rem;
+            border: none;
+            position: relative;
+            color: white;
+
+            &:disabled {
+              cursor: not-allowed;
+            }
+          }
+
+          & p {
+            position: absolute;
+            right: 0;
+          }
+
+          & .message {
+            margin-left: 1.5rem;
+            font-size: 1.4rem;
+          }
+        }
       }
     }
   }
@@ -155,14 +240,12 @@
 
 .invalid input,
 .invalid textarea {
-  border-color: #b40e0e !important;
-  background-color: #fce7e7 !important;
+  border-bottom: 2px solid #b40e0e !important;
 }
 
 .invalid input:focus,
 .invalid textarea:focus {
-  border-color: #ff8800 !important;
-  background-color: #fbe8d2 !important;
+  border-bottom: 2px solid #ff8800 !important;
 }
 
 .error-text {
@@ -173,13 +256,11 @@
 }
 
 #label-focus {
-  top: -2rem;
-  border-radius: 2px;
-  background-color: white;
+  top: -1.9rem;
+  background-color: $color-footer;
 }
 
 #label-focus1 {
-  top: -2rem;
-  border-radius: 2px;
-  background-color: white;
+  top: -1.9rem;
+  background-color: $color-footer;
 }

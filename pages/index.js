@@ -4,7 +4,6 @@ import Contact from "../components/Contact/Contact";
 import Header from "../components/Header/Header";
 import Works from "../components/Works/Works";
 import Footer from "../components/footer/Footer";
-import Background from "../components/Ui/Background";
 
 import HeaderLinks from "../components/Header/HeaderLinks/HeaderLinks";
 

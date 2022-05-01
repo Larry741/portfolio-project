@@ -1,200 +1,208 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect } from "react";
 import * as THREE from "three";
-import { FontLoader, TextureLoader } from 'three';
+import { OrbitControls } from "/node_modules/three/examples/jsm/controls/OrbitControls";
 
-import styles from './About.module.scss';
+import styles from "./About.module.scss";
 
 const About = () => {
   const contactRef = useRef();
 
   useEffect(() => {
     contactRef.current = document.getElementById("contact");
-  });
 
-  useEffect(() => {
-    // const main = () => {
-    //   const canvas = document.querySelector(`#${styles.canvas1}`);
-    //   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+    const canvas = document.querySelector(`#${styles.canvas1}`);
 
-    //   const fov = 75;
-    //   const aspect = 2; // the canvas default
-    //   const near = 0.1;
-    //   const far = 5;
-    //   const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-    //   camera.position.z = 2;
+    // renderer
+    const renderer = new THREE.WebGLRenderer({
+      canvas,
+      alpha: true,
+      antialias: true,
+    });
+    renderer.setSize(
+      renderer.domElement.clientWidth,
+      renderer.domElement.clientHeight,
+      false
+    );
 
-    //   const scene = new THREE.Scene();
-    //   scene.background = null
-      
-    //   const geometry = new THREE.SphereGeometry(1.1, 100, 100);
-    //   const material = new THREE.MeshPhongMaterial({ color: 0x44aa88 });
-    //   const sphere = new THREE.Mesh(geometry, material);
+    //scene
+    const scene = new THREE.Scene();
+    scene.background = null;
 
-    //   const color = 0xffffff;
-    //   const intensity = 1;
-    //   const light = new THREE.DirectionalLight(color, intensity);
-    //   light.position.set(-1, 2, 4);
+    // camera
+    let camera = new THREE.PerspectiveCamera(
+      40,
+      renderer.domElement.clientWidth / renderer.domElement.clientHeight,
+      1,
+      1475
+    );
+    camera.position.set(-5, 5, 0);
+    // camera.lookAt(scene.position);
 
-    //   scene.add(light);
-    //   scene.add(sphere);
+    let controls = new OrbitControls(camera, renderer.domElement);
+    // controls.minPolarAngle = Math.PI / 2;
+    // controls.maxPolarAngle = Math.PI / 2;
+    // controls.minDistance = 0;
+    // controls.autoRotate = true;
+    controls.enableZoom = false;
+    controls.enablePan = false;
 
+    // controls.addEventListener("onMouseOver", () => {
     //   renderer.render(scene, camera);
+    // })
 
-    //   function render(time) {
-    //     time *= 0.001; // convert time to seconds
+    // lightning
+    const light = new THREE.HemisphereLight(0xffffff, 1);
+    light.position.set(-1, 2, 4);
+    scene.add(light);
 
-    //     sphere.rotation.x = time;
-    //     // sphere.rotation.y = time;
+    const geo = new THREE.SphereBufferGeometry(1.7, 72, 36);
+    const mat = new THREE.MeshPhongMaterial({
+      // opacity: 0.0,
+      // transparent: true,
+      color: "cyan",
+    });
+    const globe = new THREE.Mesh(geo, mat);
+    // scene.add(globe);
 
-    //     renderer.render(scene, camera);
+    let spriteObjects = [];
+    let texts = [
+      "Reactjs",
+      "Express",
+      "Javascript",
+      "Nodejs",
+      "Nextjs",
+      "Sass",
+      "Threejs",
+      "Solidity",
+      "Graphql",
+      "Html",
+      "Mongodb",
+      "Css",
+      "Rest",
+      "Git",
+      "Bem",
+    ];
+    let mainRadius = 2;
+    let objRadius = 0.4;
+    let num = 5
 
-    //     requestAnimationFrame(render);
-    //   }
-    //   requestAnimationFrame(render);
-    // };;
+    for (let i = 0; i < texts.length; i++) {
+      let z;
 
-    // main();
+      if (i < 5) {
+        mainRadius = 1.7;
+        z = 0;
+      } else if (i < 9) {
+        mainRadius = 1.2;
+        z = -1.1;
+        num = 4
+      } else if (i < 13) {
+        mainRadius = 1.2;
+        z = 1.1;
+        num = 4
+      } else if (i < 14) {
+        mainRadius = .1;
+        z = -2;
+        num = 1;
+      } else if (i < 15) {
+        mainRadius = .05;
+        z = 2;
+        num = 1;
+      }
 
-    // function main() {
-    //   const canvas = document.querySelector("#c");
-    //   const renderer = new THREE.WebGLRenderer({ canvas });
+      let angleStep = (Math.PI * 2) / num;
+      let step = angleStep * i;
+      let txt = texts[i];
+      let radius = objRadius + mainRadius;
+      let x = Math.cos(step) * radius;
+      let y = Math.sin(step) * radius;
 
-    //   const fov = 40;
-    //   const aspect = 2; // the canvas default
-    //   const near = 0.1;
-    //   const far = 1000;
-    //   const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-    //   camera.position.z = 70;
+      let textSprite = createText(x, y, z, txt);
+      spriteObjects.push(textSprite);
+    }
 
-    //   const scene = new THREE.Scene();
-    //   scene.background = new THREE.Color("black");
+    function createText(x, y, z, txt) {
+      let fontSize = (txt === "Javascript") ? 40 : 44;
+  
+      var canvas = document.createElement("canvas");
+      canvas.width = 256;
+      canvas.height = 256;
+      var ctx = canvas.getContext("2d");
+      ctx.font = `Bold ${fontSize}pt Arial`;
+      ctx.fillStyle = "white";
+      ctx.textAlign = "center";
+      ctx.fillText(txt, 128, 44);
+      // console.log(ctx);
+      var tex = new THREE.Texture(canvas);
+      tex.needsUpdate = true;
+      var spriteMat = new THREE.SpriteMaterial({
+        map: tex,
+      });
+      var sprite = new THREE.Sprite(spriteMat);
+      sprite.center.set(0.5, 0.9);
 
-    //   function addLight(...pos) {
-    //     const color = 0xffffff;
-    //     const intensity = 1;
-    //     const light = new THREE.DirectionalLight(color, intensity);
-    //     light.position.set(...pos);
-    //     scene.add(light);
-    //   }
-    //   addLight(-4, 4, 4);
-    //   addLight(5, -4, 4);
+      scene.add(sprite);
 
-    //   const lettersTilt = new THREE.Object3D();
-    //   scene.add(lettersTilt);
-    //   lettersTilt.rotation.set(
-    //     THREE.Math.degToRad(-15),
-    //     0,
-    //     THREE.Math.degToRad(-15)
-    //   );
-    //   const lettersBase = new THREE.Object3D();
-    //   lettersTilt.add(lettersBase);
-    //   {
-    //     const letterMaterial = new THREE.MeshPhongMaterial({
-    //       color: "red",
-    //     });
-    //     const loader = new FontLoader();
-    //     loader.load(
-    //       "https://threejsfundamentals.org/threejs/resources/threejs/fonts/helvetiker_regular.typeface.json",
-    //       (font) => {
-    //         const spaceSize = 1.0;
-    //         let totalWidth = 0;
-    //         let maxHeight = 0;
-    //         const letterGeometries = {
-    //           " ": { width: spaceSize, height: 0 }, // prepopulate space ' '
-    //         };
-    //         const size = new THREE.Vector3();
-    //         const str = "threejs fundamentals ";
-    //         const letterInfos = str.split("").map((letter, ndx) => {
-    //           if (!letterGeometries[letter]) {
-    //             const geometry = new THREE.TextBufferGeometry(letter, {
-    //               font: font,
-    //               size: 3.0,
-    //               height: 0.2,
-    //               curveSegments: 12,
-    //               bevelEnabled: true,
-    //               bevelThickness: 0.5,
-    //               bevelSize: 0.3,
-    //               bevelSegments: 5,
-    //             });
-    //             geometry.computeBoundingBox();
-    //             geometry.boundingBox.getSize(size);
-    //             letterGeometries[letter] = {
-    //               geometry,
-    //               width: size.x / 2, // no idea why size.x is double size
-    //               height: size.y,
-    //             };
-    //           }
-    //           const { geometry, width, height } = letterGeometries[letter];
-    //           const mesh = geometry
-    //             ? new THREE.Mesh(geometry, letterMaterial)
-    //             : null;
-    //           totalWidth += width;
-    //           maxHeight = Math.max(maxHeight, height);
-    //           return {
-    //             mesh,
-    //             width,
-    //           };
-    //         });
-    //         let t = 0;
-    //         const radius = totalWidth / Math.PI;
-    //         for (const { mesh, width } of letterInfos) {
-    //           if (mesh) {
-    //             const offset = new THREE.Object3D();
-    //             lettersBase.add(offset);
-    //             offset.add(mesh);
-    //             offset.rotation.y = (t / totalWidth) * Math.PI * 2;
-    //             mesh.position.z = radius;
-    //             mesh.position.y = -maxHeight / 2;
-    //           }
-    //           t += width;
-    //         }
-    //         {
-    //           const geo = new THREE.SphereBufferGeometry(radius - 1, 32, 24);
-    //           const mat = new THREE.MeshPhongMaterial({
-    //             color: "cyan",
-    //           });
-    //           const mesh = new THREE.Mesh(geo, mat);
-    //           scene.add(mesh);
-    //         }
-    //         camera.position.z = radius * 3;
-    //       }
-    //     );
-    //   }
+      return {
+        mesh: sprite,
+        axis: new THREE.Vector3(0, 0, 1),
+        speed: Math.PI * 0.05,
+        position: new THREE.Vector3(x, y, z),
+        time: 0,
+        update: function (t) {
+          this.time += t;
+          this.mesh.position
+            .copy(this.position)
+            .applyAxisAngle(this.axis, this.speed * this.time);
+          this.mesh.rotateOnWorldAxis(this.axis, this.speed * t);
+        },
+      };
+    }
 
-    //   function resizeRendererToDisplaySize(renderer) {
-    //     const canvas = renderer.domElement;
-    //     const width = canvas.clientWidth;
-    //     const height = canvas.clientHeight;
-    //     const needResize = canvas.width !== width || canvas.height !== height;
-    //     if (needResize) {
-    //       renderer.setSize(width, height, false);
-    //     }
-    //     return needResize;
-    //   }
+    function resizeCanvasToDisplaySize() {
+      const canvas = renderer.domElement;
+      const width = canvas.clientWidth;
+      const height = canvas.clientHeight;
+      if (canvas.width !== width || canvas.height !== height) {
+        // you must pass false here or three.js sadly fights the browser
+        renderer.setSize(width, height, false);
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
 
-    //   function render(time) {
-    //     time *= 0.001;
+        // set render target sizes here
+      }
+    }
 
-    //     if (resizeRendererToDisplaySize(renderer)) {
-    //       const canvas = renderer.domElement;
-    //       camera.aspect = canvas.clientWidth / canvas.clientHeight;
-    //       camera.updateProjectionMatrix();
-    //     }
+    let clock = new THREE.Clock();
 
-    //     lettersBase.rotation.y = time * -0.5;
+    function render(time) {
+      resizeCanvasToDisplaySize();
+      let t = clock.getDelta();
 
-    //     renderer.render(scene, camera);
+      resizeCanvasToDisplaySize();
+      spriteObjects.forEach(function (textObj) {
+        let sprite = textObj.mesh;
+        let spritePosition;
+        
+        let scaleFactor = 3.6;
+        let scale = Math.abs(scaleFactor / (camera.position.y - sprite.position.y))
 
-    //     requestAnimationFrame(render);
-    //   }
-    //   console.log("ran");
+        if (scale < 1) {
+          
+        }
+        
+        sprite.scale.set(scale, scale, 1);
+        textObj.update(t);
+      });
 
-    //   requestAnimationFrame(render);
-    // }
+      renderer.render(scene, camera);
+      requestAnimationFrame(render);
+    }
 
-    // main();
-  }, [])
+    renderer.render(scene, camera);
+    requestAnimationFrame(render);
+  });
 
   const scrollTo = (event) => {
     if (event.target.innerText === "Get In Touch!") {
@@ -206,48 +214,34 @@ const About = () => {
     <section id="about" className={styles.about}>
       <div className={styles.header}>
         <div></div>
-        <h2>About</h2>
+        <h2 className="primaryHeader">About</h2>
         <div></div>
       </div>
       <div className={styles.body}>
         <div className={styles.para}>
-          <p>
+          <p className="secondaryText">
             I'm a self-taught full stack web developer with over 5 years worth
             of opportunities working with a wide array of companies and
             individuals that has afforded me a significant amount of experience.
             {/* have gained invaluable knowledge ?? */}
           </p>
-          <p>
-            I'm passionate about using my problem solving skills in creating fascinating solutions to problems and
-            bringing ideas to life writing clean, efficient and maintainable
-            code. I've made numerous side projects and especially love
-            manipulating react for spell-binding UI.
+          <p className="secondaryText">
+            I'm passionate about using my problem solving skills in creating
+            fascinating solutions to problems and bringing ideas to life writing
+            clean, efficient and maintainable code. I've made numerous side
+            projects and especially love manipulating react for spell-binding
+            UI.
           </p>
-          <p>
+          <p className="secondaryText">
             I currently work remotely with a selected freelance client base
             being open for new opportunities.
           </p>
           <a onClick={scrollTo}>Get In Touch!</a>
         </div>
-        {/* <canvas id={styles.canvas1} width={150} height={400} style={{display: "block", width: 500 + 'px', height: 400 + 'px'}} /> */}
-        {/* <div className={styles.stack}>
-          {/* <span className={styles.html}>Html</span>
-          <span className={styles.react}>ReactJS</span>
-          <span className={styles.next}>Next</span>
-          <span className={styles.css}>Css</span>
-          <span className={styles.node}>NodeJS</span>
-          <span className={styles.express}>ExpressJS</span>
-          <span className={styles.javascript}>Javascript</span>
-          <span className={styles.mongo}>Mongodb</span>
-          <span className={styles.sass}>sass</span>
-          <span className={styles.git}>Git</span>
-          <span className={styles.Firebase}>Redux</span>
-          <span className={styles.solidity}>solidity</span>
-          <span>Gulp</span> */}
-        {/* </div> */}
+        <canvas id={styles.canvas1} />
       </div>
     </section>
   );
-}
+};
 
 export default About;

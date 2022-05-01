@@ -41,8 +41,9 @@
     justify-content: center;
 
     & a {
-      padding: 1.5rem 2.5rem;
-      background-color: bisque;
+      border-radius: 3px;
+      padding: 1.2rem 2.2rem;
+      background-color: $color-secondary;
     }
 
     & a:last-of-type {

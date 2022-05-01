@@ -1,5 +1,8 @@
 import { useEffect, useRef, useContext, useState, useCallback } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { FaTwitter, FaLinkedinIn, FaGithub, FaInstagram } from "react-icons/fa";
+
 import WidthContext from "../../store/width-context";
 
 import heroImage from "../../../public/home-hongkong.jpg";
@@ -60,7 +63,9 @@ let add = 1;
 
 const typeWriter2 = () => {
   const spanEl = document.getElementById(`${styles.dynText}`);
-  spanEl.className = styles.wrap;
+  if (spanEl) {
+    spanEl.className = styles.wrap;
+  }
 
   const reduceString = (string) => {
     return new Promise((resolve, reject) => {
@@ -133,7 +138,7 @@ const calculateBackgroundPercent = (
   elWidth,
   elDisplacement,
   screenSlit,
-  operator,
+  operation,
   eventClientX
 ) => {
   const elPercentageWidth = elWidth / 20;
@@ -141,7 +146,7 @@ const calculateBackgroundPercent = (
 
   // el.style.opacity = 1;
 
-  if (operator === "greater than") {
+  if (operation === "greater than") {
     num = elPercentageWidth * 20;
 
     if (eventClientX >= elDisplacement + screenSlit * 2 + elPercentageWidth) {
@@ -322,13 +327,14 @@ const HeaderHero = () => {
       const eventTarget = event.target.closest("div");
       const halfScreen = docWidth / 2;
       let introRefTimeout;
-
+      
       if (eventTarget.id === styles.right) {
         // const diff = event.clientX - halfScreen;
         const percentDiff = (event.clientX - halfScreen / docWidth) * 100;
         const screenSlit = halfScreen - introRefRight;
 
         if (event.clientX >= introRefRight + screenSlit * 2) {
+          
           clearTimeout(introRefTimeout);
           introRefTimeout = setTimeout(
             calculateBackgroundPercent(
@@ -396,8 +402,14 @@ const HeaderHero = () => {
           />
         )}
       </div>
-      <div id={"intro1"} className={`${styles.intro} ${styles.intro1}`}>
-        <h1 id={"header1"} style={{margin: 0 + 'px'}} className={`${styles.wrap}`}></h1>
+      <div id={"intro1"} className={`${styles.intro}`}>
+        <h1 id={"header1"} style={{margin: 0 + 'px'}} className={`${styles.wrap} mainHeader`}></h1>
+      </div>
+      <div className={styles.socials}>
+        <Link href='#'><a><FaTwitter /></a></Link>
+        <Link href='#'><a><FaLinkedinIn /></a></Link>
+        <Link href='#'><a><FaGithub /></a></Link>
+        <Link href='#'><a><FaInstagram /></a></Link>
       </div>
     </div>
   );

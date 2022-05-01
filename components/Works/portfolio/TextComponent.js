@@ -9,9 +9,9 @@ const TextComponent = ({data, index}) => {
 
   return (
     <div className={`${styles.control} ${control2}`}>
-      <h3>{data.name}</h3>
+      <h3 className="secondaryHeader">{data.name}</h3>
       <div className={styles.textControl}>
-        <p>{data.paragraph}</p>
+        <p className="secondaryText">{data.paragraph}</p>
         <div className={styles.iconControl}>
           {data.icons.map((Icon, index) => {
             return <Icon key={index} />;
@@ -19,7 +19,7 @@ const TextComponent = ({data, index}) => {
         </div>
       </div>
       <div className={styles.buttonControl}>
-        <div>
+        <div className="buttonText">
           <Link href="#">
             <a>View Project</a>
           </Link>

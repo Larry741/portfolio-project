@@ -56,9 +56,10 @@ const Works = () => {
           entry.target.classList.add("slide");
         }
         // if (!entry.isIntersecting) {
-        //   entry.target.classList.remove("slide");
-        // }
+          //   entry.target.classList.remove("slide");
+          // }
       });
+      // observer.disconnect();
     };
 
     let options = {
@@ -78,7 +79,7 @@ const Works = () => {
     <section id="work" className={styles.section}>
       <div className={styles.header}>
         <div></div>
-        <h2>Portfolio</h2>
+        <h2 className="primaryHeader">Latest Works</h2>
         <div></div>
       </div>
       <div className={styles.portContainer}>

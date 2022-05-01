@@ -6,9 +6,31 @@
   // background-image: url(../../../public/home-hongkong.jpg);
   box-shadow: 0 0.2rem 0.8rem rgb(0 0 0 / 25%);
   color: white;
-  font-size: 3rem;
   display: flex;
   z-index: 0;
+
+  .socials {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    justify-self: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 3.2rem;
+    transition: 0.3s;
+    height: 21rem;
+    padding: 0 2rem;
+
+    & a {
+      transition: 0.3s;
+
+      &:hover {
+        color: red;
+      }
+    }
+  }
 }
 
 .intro {
@@ -22,15 +44,12 @@
   background-clip: text;
   overflow: hidden;
   white-space: nowrap;
-}
-
-.intro1 {
   position: absolute;
   top: 22%;
-  left: 7%;
+  left: 6%;
   padding: 0 0 2.5rem 2.5rem;
   height: 22.6rem;
-  width: 54rem;
+  width: 57rem;
   transition: 1.5s;
 }
 

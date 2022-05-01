@@ -1,13 +1,9 @@
 .navbar {
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr .7fr 1fr;
-  grid-template-rows: 9.2rem;
-  // gap: 3rem;
+  height: 10rem;
+  display: flex;
   align-items: center;
-  justify-items: center;
-  // background-color:  rgba(#23252F, .9);
-  background: radial-gradient(ellipse at bottom, rgba(#1b2735, .85) 0%, rgba(#090a0f, .85) 100%);
+  justify-content: space-around;
   color: white;
   position: fixed;
   top: 0rem;
@@ -17,11 +13,23 @@
   animation: slideIn .5s ease forwards;
 }
 
+.navbar1 {
+  
+}
+
+.navbar2 {
+  font-size: 1rem !important;
+  background-color: $color-secondary2;
+  height: 7rem;
+}
+
+
 .logobox {
   width: 4rem;
   height: 4rem;
   overflow: hidden;
   border-radius: 50%;
+  margin-right: 15rem;
   
   & img {
     transform: skewX(3deg);
@@ -30,36 +38,19 @@
 }
 
 .navLinks {
+  flex-basis: 41rem;
   justify-self: stretch;
   align-self: stretch;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 100%;
-  justify-items: center;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  // grid-template-columns: repeat(4, 1fr);
+  // grid-template-rows: 100%;
+  // align-items: center;
 
   & span {
     transition: .3s;
     cursor: pointer;
-
-    &:hover { 
-      color: red;
-    }
-  }
-}
-
-.socials {
-  margin-left: 4rem;
-  justify-self: start;
-  display: grid;
-  grid-template-columns: repeat(4, 3.2rem);
-  grid-template-rows: 3.2rem;
-  gap: 4rem;
-  font-size: 3.2rem;
-  transition: .3s;
-
-  & a {
-    transition: .3s;
 
     &:hover { 
       color: red;
