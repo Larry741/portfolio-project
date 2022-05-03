@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
 
+import styles from './use-input.module.scss';
+
 const useInput = (validationFn) => {
   const [enteredValue, setEnteredValue] = useState("");
   const [inputIsTouched, setInputIsTouched] = useState(false);
@@ -11,12 +13,16 @@ const useInput = (validationFn) => {
 
   const inputBlurHandler = (event) => {
     setInputIsTouched(true);
-    if (enteredValue == "") {
+    if (event.target.value == "") {
       event.target.previousElementSibling.removeAttribute('id');
     }
   };
 
   const valueChangeHandler = (event) => {
+    console.log(event.target.value)
+    if (event.target.previousElementSibling.id != styles["label-focus"]) {
+      event.target.previousElementSibling.id = styles["label-focus"];
+    }
     setEnteredValue(event.target.value);
   };
 
@@ -31,6 +37,7 @@ const useInput = (validationFn) => {
     enteredValue,
     inputIsValid,
     inputIsInvalid,
+    inputIsTouched,
     inputRef,
     labelRef,
     inputBlurHandler,

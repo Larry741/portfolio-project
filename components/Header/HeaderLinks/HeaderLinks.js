@@ -35,8 +35,8 @@ const HeaderLinks = () => {
     let debounceSpeed;
     const showNav = (event) => {
       const y = aboutRef.current.getBoundingClientRect().top;
-      if ( Math.abs(y) > 100) {
-        debounceSpeed = 1000;
+      if ( Math.abs(y) > 150) {
+        debounceSpeed = 5000;
       } else {
         debounceSpeed = null
       }
@@ -47,31 +47,6 @@ const HeaderLinks = () => {
     
 
     document.addEventListener("scroll", showNav);
-
-    // const showNav = (entries, observer) => {
-    //   entries.forEach((entry) => {
-    //     const y = entry.boundingClientRect.y;
-    //     console.log(entry.intersectionRatio);
-    //     if (entry.intersectionRatio > .88 && y < 0) {
-    //       // navBarRef.current.classList.add(styles.solid);
-    //       setShowfirstNav(false)
-    //     }
-    //     if (entry.intersectionRatio < 0.88 && y > 0) {
-    //       setShowfirstNav(true)
-    //       // navBarRef.current.classList.remove(styles.solid);
-    //     }
-    //   });
-    // };
-
-    // let options = {
-    //   root: null,
-    //   rootMargin: "0px",
-    //   threshold: [.88, 1],
-    // };
-
-    // let observer = new IntersectionObserver(showNav, options);
-
-    // observer.observe(aboutRef.current);
   }, [])
 
   const scrollTo = (event) => {
@@ -85,10 +60,6 @@ const HeaderLinks = () => {
     } else if (eventTarget === "Contact") {
       contactRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-  }
-
-  const stickyNavbar = () => {
-
   }
 
   const content = (

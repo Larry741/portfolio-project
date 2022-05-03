@@ -21,6 +21,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     padding: 1rem 0;
+
+    & a:hover {
+      color: gray;
+    }
   }
 
   & > span {
@@ -36,6 +40,7 @@
     }
 
     & p {
+      margin: .2rem 0;
       font-size: 1.3rem;
       color: white;
       justify-self: center;

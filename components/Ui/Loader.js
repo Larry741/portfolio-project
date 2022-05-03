@@ -1,5 +1,5 @@
 
-// import classes from './Loader.module.scss'
+import classes from './Loader.module.scss'
 
 const Loader = () => {
 

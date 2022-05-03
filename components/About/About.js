@@ -1,11 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "/node_modules/three/examples/jsm/controls/OrbitControls";
 
 import styles from "./About.module.scss";
 
 const About = () => {
+  const [isPlay, setIsPlay] = useState(true);
   const contactRef = useRef();
 
   useEffect(() => {
@@ -85,7 +86,7 @@ const About = () => {
     ];
     let mainRadius = 2;
     let objRadius = 0.4;
-    let num = 5
+    let num = 5;
 
     for (let i = 0; i < texts.length; i++) {
       let z;
@@ -96,17 +97,17 @@ const About = () => {
       } else if (i < 9) {
         mainRadius = 1.2;
         z = -1.1;
-        num = 4
+        num = 4;
       } else if (i < 13) {
         mainRadius = 1.2;
         z = 1.1;
-        num = 4
+        num = 4;
       } else if (i < 14) {
-        mainRadius = .1;
+        mainRadius = 0.1;
         z = -2;
         num = 1;
       } else if (i < 15) {
-        mainRadius = .05;
+        mainRadius = 0.05;
         z = 2;
         num = 1;
       }
@@ -123,8 +124,8 @@ const About = () => {
     }
 
     function createText(x, y, z, txt) {
-      let fontSize = (txt === "Javascript") ? 40 : 44;
-  
+      let fontSize = txt === "Javascript" ? 40 : 44;
+
       var canvas = document.createElement("canvas");
       canvas.width = 256;
       canvas.height = 256;
@@ -133,7 +134,6 @@ const About = () => {
       ctx.fillStyle = "white";
       ctx.textAlign = "center";
       ctx.fillText(txt, 128, 44);
-      // console.log(ctx);
       var tex = new THREE.Texture(canvas);
       tex.needsUpdate = true;
       var spriteMat = new THREE.SpriteMaterial({
@@ -176,32 +176,67 @@ const About = () => {
 
     let clock = new THREE.Clock();
 
-    function render(time) {
-      resizeCanvasToDisplaySize();
-      let t = clock.getDelta();
+    animate(clock.getDelta());
+    renderer.render(scene, camera);
+    let id = requestAnimationFrame(render);
 
-      resizeCanvasToDisplaySize();
+    function animate(t) {
       spriteObjects.forEach(function (textObj) {
         let sprite = textObj.mesh;
         let spritePosition;
-        
-        let scaleFactor = 3.6;
-        let scale = Math.abs(scaleFactor / (camera.position.y - sprite.position.y))
 
-        if (scale < 1) {
-          
-        }
-        
+        let scaleFactor = 3.6;
+        let scale = Math.abs(
+          scaleFactor / (camera.position.y - sprite.position.y)
+        );
+
+        // if (scale < 1) {
+        // }
+
         sprite.scale.set(scale, scale, 1);
         textObj.update(t);
       });
-
-      renderer.render(scene, camera);
-      requestAnimationFrame(render);
     }
 
-    renderer.render(scene, camera);
-    requestAnimationFrame(render);
+    function render() {
+      if (isPlay) {
+        resizeCanvasToDisplaySize();
+        let t = clock.getDelta();
+
+        resizeCanvasToDisplaySize();
+        animate(t);
+
+        renderer.render(scene, camera);
+        // requestAnimationFrame(render);
+      } else {
+        cancelAnimationFrame(id)
+      }
+    }
+  }, [isPlay]);
+
+  useEffect(() => {
+    const aboutSection = document.getElementById("about");
+
+    const showBox = (entries, observer) => {
+      entries.forEach((entry) => {
+        console.log(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          setIsPlay(true);
+        } else {
+          setIsPlay(false);
+        }
+      });
+    };
+
+    let options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: [0, 0.1, 0.2, 0.3, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+    };
+
+    let observer = new IntersectionObserver(showBox, options);
+
+    observer.observe(aboutSection);
   });
 
   const scrollTo = (event) => {

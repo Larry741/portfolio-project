@@ -14,12 +14,12 @@
 }
 
 .navbar1 {
-  
+
 }
 
 .navbar2 {
+  animation: slideIn2 .5s ease forwards;
   font-size: 1rem !important;
-  background-color: $color-secondary2;
   height: 7rem;
 }
 
@@ -66,6 +66,19 @@
   to {
     transform: translateY(0);
     opacity: 1;
+    background-color: transparent;
+  }
+}
+
+@keyframes slideIn2 {
+  from {
+    transform: translateY(-7rem);
+    opacity: .5;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+    background-color: $color-secondary2;
   }
 }
 

@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useState, useRef, useEffect } from "react";
 import useInput from "../Hooks/use-Input";
-import Loader from "../Ui/Loader";
+// import Loader from "../Ui/Loader";
 
 import MapContact from "./MapContact";
 
@@ -30,6 +30,7 @@ const Contact = () => {
     enteredValue: enteredName,
     inputIsValid: nameIsValid,
     inputIsInvalid: nameIsInvalid,
+    inputIsTouched: nameIsTouched,
     inputRef: nameInputRef,
     labelRef: nameLabelRef,
     inputBlurHandler: nameInputBlurHandler,
@@ -40,6 +41,7 @@ const Contact = () => {
     enteredValue: enteredEmail,
     inputIsValid: emailIsValid,
     inputIsInvalid: emailIsInvalid,
+    inputIsTouched: emailIsTouched,
     inputRef: emailInputRef,
     labelRef: emailLabelRef,
     inputBlurHandler: emailInputBlurHandler,
@@ -50,6 +52,7 @@ const Contact = () => {
     enteredValue: enteredComment,
     inputIsValid: commentIsValid,
     inputIsInvalid: commentIsInvalid,
+    inputIsTouched: commentIsTouched,
     inputRef: commentInputRef,
     labelRef: commentLabelRef,
     inputBlurHandler: commentInputBlurHandler,
@@ -106,6 +109,7 @@ const Contact = () => {
 
   const submitformHandler = async (event) => {
     event.preventDefault();
+    if (!formIsValid) return
     setIsLoading(true);
 
     try {
@@ -131,7 +135,7 @@ const Contact = () => {
       resetComment();
       resetEmail();
       resetName();
-      displayMessage("green", resData, 5000, messageRef);
+      displayMessage("green", resData.message, 5000, messageRef);
     } catch (err) {
       displayMessage("red", err.message, 5000, messageRef);
     }
@@ -173,7 +177,7 @@ const Contact = () => {
                   to hit me up!
                 </p>
               </div>
-              <form onSubmit={submitformHandler} className={styles.form}>
+              <form onSubmit={submitformHandler} className={`${styles.form} `}>
                 <div className={styles.inputControl}>
                   <div
                     className={`${styles.control} ${
@@ -234,8 +238,8 @@ const Contact = () => {
                   ></textarea>
                 </div>
                 <div className={styles.buttonControl}>
-                  <button className="buttonText" disabled={!formIsValid || loading}>
-                    Send message{loading && <Loader />}
+                  <button className="buttonText" disabled={loading}>
+                    Send message
                   </button>
                   {<span className={styles.message} ref={messageRef}></span>}
                 </div>

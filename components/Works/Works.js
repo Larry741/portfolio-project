@@ -49,15 +49,17 @@ const portfolio = [
 const Works = () => {
   useEffect(() => {
     const portfolioElements = document.querySelectorAll(".portfolio");
+    let viewportHeight;
+    let viewportScrollY;
 
     const showBox = (entries, observer) => {
+      // viewportHeight = window.innerHeight;
+      // viewportScrollY = window.scrollY;
+
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("slide");
         }
-        // if (!entry.isIntersecting) {
-          //   entry.target.classList.remove("slide");
-          // }
       });
       // observer.disconnect();
     };
@@ -65,7 +67,7 @@ const Works = () => {
     let options = {
       root: null,
       rootMargin: "0px",
-      threshold: .7,
+      threshold: [.5, .6, .7, 0.8, 0.9, 1],
     };
 
     let observer = new IntersectionObserver(showBox, options);

@@ -35,7 +35,7 @@ const typeWriter = (el) => {
       } else if (i > 13) {
         el.innerHTML = `<span>${text.slice(0, 4)}</span><br />
                         <span>${text.slice(4, 15)}</span><br />
-                        <span id=${styles.dynText}>${text.slice(
+                        <span  id=${styles.dynText}>${text.slice(
           16,
           25
         )}</span> <span>${text.slice(26)}</span>`;
@@ -44,6 +44,7 @@ const typeWriter = (el) => {
 
       }
     }
+
     if (i === allText.length) {
       el.classList.remove(styles.wrap);
       return typeWriter2();
